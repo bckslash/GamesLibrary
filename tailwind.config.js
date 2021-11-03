@@ -8,10 +8,18 @@ module.exports = {
 				primary: "#164C66",
 				secondary: "#142435",
 			},
+			height: {
+				semiscreen: "90vh",
+			},
 		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			brightness: ["hover", "focus"],
+		},
 	},
-	plugins: [],
+	plugins: [
+		require("@tailwindcss/typography"),
+		require("@tailwindcss/forms"),
+	],
 };

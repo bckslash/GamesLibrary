@@ -4,24 +4,24 @@ import { BiGame } from "react-icons/bi";
 
 function Navbar() {
 	return (
-		<div className="bg-dark flex sm:px-5 py-7 justify-evenly flex-wrap sm:space-x-40 space-y-5 sm:space-y-0 gap-3 shadow-2xl">
-			<div className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer">
+		<div className="bg-dark flex sm:px-5 py-7 justify-evenly flex-wrap sm:space-x-40 space-y-5 sm:space-y-0 gap-3 shadow-xl">
+			<div className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer hover:text-gray-500 transition-colors duration-200">
 				<BiGame />
 				<h1>.LIB</h1>
 			</div>
-			<ul className="text-gray-300 mx-10 text-sm sm:text-lg flex items-center justify-center space-x-10 flex-wrap ">
-				<li className="hover:text-gray-500">
+			<ul className="text-gray-300 mx-10 text-sm sm:text-lg flex items-center justify-center space-x-10 flex-wrap">
+				<li className="hover:text-gray-500 transition-colors duration-200">
 					<Link exact to="/">
 						HOME
 					</Link>
 				</li>
-				<li className="hover:text-gray-500">
+				<li className="hover:text-gray-500 transition-colors duration-200">
 					<Link to="/games">GAMES</Link>
 				</li>
-				<li className="hover:text-gray-500">
+				<li className="hover:text-gray-500 transition-colors duration-200">
 					<Link to="/about">ABOUT</Link>
 				</li>
-				<li className="hover:text-gray-500">
+				<li className="hover:text-gray-500 transition-colors duration-200">
 					<Link to="/contact">CONTACT</Link>
 				</li>
 			</ul>
