@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 .page {
-	@apply min-h-full px-14 py-14 md:px-40 md:py-20 bg-gradient-to-b from-primary to-secondary;
+	@apply min-h-full px-8 py-16 md:px-40 md:py-20 bg-gradient-to-b from-primary to-secondary;
 }

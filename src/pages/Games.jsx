@@ -12,7 +12,7 @@ function Games() {
 	return (
 		<main className="h-semiscreen">
 			<Navbar />
-			<section className="page grid grid-cols-1 gap-10 2xl:grid-cols-2 ">
+			<section className="page grid grid-cols-1 gap-10 2xl:grid-cols-2 items-start">
 				{data.map((item) => {
 					return <GameCard key={item._id} game={item} />;
 				})}
