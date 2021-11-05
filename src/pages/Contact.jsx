@@ -16,6 +16,19 @@ function Contact() {
 		message: "",
 	});
 
+	const [valid, setValid] = useState(true);
+	const [sent, setSent] = useState(false);
+
+	const validateEmail = (email) => {
+		const re =
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(email).toLowerCase());
+	};
+
+	const createID = () => {
+		return new Date().getTime().toString().slice(-6);
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (
@@ -23,15 +36,28 @@ function Contact() {
 			emailContainer.current.value &&
 			messageContainer.current.value
 		) {
+			if (!validateEmail(emailContainer.current.value)) {
+				setValid(false);
+				emailContainer.current.value = "";
+				return;
+			}
 			const newData = {
-				id: new Date().getTime().toString(),
+				id: createID(),
 				name: nameContainer.current.value,
 				email: emailContainer.current.value,
 				message: messageContainer.current.value,
 			};
 			setData({ ...newData });
+			setSent(true);
 		}
 	};
+
+	useEffect(() => {
+		setTimeout(() => {
+			setValid(true);
+			setSent(false);
+		}, 5000);
+	}, [valid, sent]);
 
 	useEffect(() => {
 		localStorage.setItem(data.id, JSON.stringify(data));
@@ -49,12 +75,21 @@ function Contact() {
 			<Navbar />
 			<section className="page">
 				<form
-					onClick={handleSubmit}
+					onSubmit={handleSubmit}
 					className="flex flex-col gap-5 md:w-6/12 mx-auto text-center text-gray-300"
 				>
 					<h2 className="text-gray-300 mb-10 text-2xl md:text-4xl font-semibold ">
 						Send us a feedback
 					</h2>
+					{valid || (
+						<ErrorMessage>Invalid Email Address</ErrorMessage>
+					)}
+
+					{sent && (
+						<SuccessMessage>
+							The Feedback was sent successfully
+						</SuccessMessage>
+					)}
 					<input
 						className="bg-transparent border-gray-900 rounded"
 						id="name"
@@ -79,12 +114,20 @@ function Contact() {
 						ref={messageContainer}
 						required
 					></textarea>
-					<ButtonSubmit>Submit</ButtonSubmit>
+					<ButtonSubmit type="submit">Submit</ButtonSubmit>
 				</form>
 			</section>
 			<Footer />
 		</main>
 	);
 }
+
+const ErrorMessage = ({ children }) => {
+	return <h4 className="bg-red-800 py-2 rounded text-white">{children}</h4>;
+};
+
+const SuccessMessage = ({ children }) => {
+	return <h4 className="bg-green-800 py-2 rounded text-white">{children}</h4>;
+};
 
 export default Contact;
