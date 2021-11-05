@@ -5,12 +5,8 @@
   </a>
 
   <h3 align="center">Games Library</h3>
-
-  <p align="center">
-    An Awesome ReadME Generator To Jumpstart Your Projects!
-    <br/>
-    <br/>
-  </p>
+  <br />
+  <br />
 </p>
 
 ![Downloads](https://img.shields.io/github/downloads/Robert Smrek/AWT - Games Library/total) ![Contributors](https://img.shields.io/github/contributors/Robert Smrek/AWT - Games Library?color=dark-green) ![Issues](https://img.shields.io/github/issues/Robert Smrek/AWT - Games Library) ![License](https://img.shields.io/github/license/Robert Smrek/AWT - Games Library)
