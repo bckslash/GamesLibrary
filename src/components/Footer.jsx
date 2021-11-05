@@ -8,7 +8,7 @@ function Footer() {
 	return (
 		<div className="bg-dark px-14 py-10 flex flex-col sm:flex-row text-center md:text-left items-center justify-center flex-wrap gap-10 shadow-xl">
 			<div
-				className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer hover:text-gray-500 transition-color duration-200"
+				className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer hover:text-gray-500 transition-color duration-200 hover:animate-pulse rainbow"
 				onClick={() => {
 					window.scrollTo({
 						top: 0,

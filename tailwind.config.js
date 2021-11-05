@@ -16,6 +16,7 @@ module.exports = {
 	variants: {
 		extend: {
 			brightness: ["hover", "focus"],
+			animation: ["hover", "focus"],
 		},
 	},
 	plugins: [
