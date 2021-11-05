@@ -7,7 +7,7 @@
   <h3 align="center">Games Library</h3>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/bckslash/GamesLibrary/total) ![Contributors](https://img.shields.io/github/contributors/bckslash/GamesLibrary?color=dark-green) ![Issues](https://img.shields.io/github/issues/bckslash/GamesLibrary) ![License](https://img.shields.io/github/license/bckslash/GamesLibrary)
+![Downloads](https://img.shields.io/github/downloads/bckslash/GamesLibrary/total) ![Contributors](https://img.shields.io/github/contributors/bckslash/GamesLibrary?color=dark-green) ![Issues](https://img.shields.io/github/issues/bckslash/GamesLibrary) ![License](https://img.shields.io/apm/l/vim-mode?color=asd&label=license&logo=green&logoColor=MIT)
 
 ## Table Of Contents
 
