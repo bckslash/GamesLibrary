@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+<br/>
+<p align="center">
+  <a href="https://github.com/Robert Smrek/AWT - Games Library">
+    <img src="images/logo.svg" alt="Logo" width="80" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Games Library</h3>
 
-## Available Scripts
+  <p align="center">
+    An Awesome ReadME Generator To Jumpstart Your Projects!
+    <br/>
+    <br/>
+  </p>
+</p>
 
-In the project directory, you can run:
+![Downloads](https://img.shields.io/github/downloads/Robert Smrek/AWT - Games Library/total) ![Contributors](https://img.shields.io/github/contributors/Robert Smrek/AWT - Games Library?color=dark-green) ![Issues](https://img.shields.io/github/issues/Robert Smrek/AWT - Games Library) ![License](https://img.shields.io/github/license/Robert Smrek/AWT - Games Library)
 
-### `npm start`
+## Table Of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   [About the Project](#about-the-project)
+-   [Built With](#built-with)
+-   [Getting Started](#getting-started)
+    -   [Prerequisites](#prerequisites)
+    -   [Installation](#installation)
+-   [Roadmap](#roadmap)
+-   [Contributing](#contributing)
+-   [License](#license)
+-   [Authors](#authors)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## About The Project
 
-### `npm test`
+![Screen Shot](images/screenshot.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is for my school assigment to build full website on any theme.
 
-### `npm run build`
+Project is still work in progress
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Whole app is build with React and Tailwind css with custom API.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is an example of how to list things you need to use the software and how to install them.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-   npm
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+npm install npm@latest -g
+```
 
-## Learn More
+### Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+git clone git@github.com:bckslash/GamesLibrary.git
+```
 
-### Code Splitting
+3. Install NPM packages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```sh
+npm -i
+```
 
-### Analyzing the Bundle Size
+4. Run the app in the development mode.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```sh
+npm start
+```
 
-### Making a Progressive Web App
+## Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+See the [open issues](https://github.com/Robert Smrek/AWT - Games Library/issues) for a list of proposed features (and known issues).
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### Deployment
+-   If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Robert Smrek/AWT - Games Library/issues/new) to discuss it, or directly create a pull request after you edit the _README.md_ file with necessary changes.
+-   Please make sure you check your spelling and grammar.
+-   Create individual PR for each suggestion.
+-   Please also read through the [Code Of Conduct](https://github.com/Robert Smrek/AWT - Games Library/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Creating A Pull Request
 
-### `npm run build` fails to minify
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/Robert Smrek/AWT - Games Library/blob/main/LICENSE.md) for more information.
+
+## Authors
+
+-   **Robert Smrek** - _TUKE Student_ - [Robert Smrek](https://github.com/bckslash) - \*\*
