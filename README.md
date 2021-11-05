@@ -17,7 +17,6 @@
     -   [Prerequisites](#prerequisites)
     -   [Installation](#installation)
 -   [Roadmap](#roadmap)
--   [Contributing](#contributing)
 -   [License](#license)
 -   [Authors](#authors)
 
@@ -70,16 +69,7 @@ npm start
 
 ## Roadmap
 
-See the [open issues](https://github.com/Robert Smrek/AWT - Games Library/issues) for a list of proposed features (and known issues).
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
--   If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Robert Smrek/AWT - Games Library/issues/new) to discuss it, or directly create a pull request after you edit the _README.md_ file with necessary changes.
--   Please make sure you check your spelling and grammar.
--   Create individual PR for each suggestion.
--   Please also read through the [Code Of Conduct](https://github.com/Robert Smrek/AWT - Games Library/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
+See the [open issues](https://github.com/bcksalsh/GamesLibrary/issues) for a list of proposed features (and known issues).
 
 ### Creating A Pull Request
 
@@ -91,7 +81,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/bckslash/GamesLibrary/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/bckslash/GamesLibrary/blob/master/LICENSE) for more information.
 
 ## Authors
 
