@@ -18,5 +18,6 @@
 
 .rainbow:hover {
 	color: red;
-	animation: rainbow 1s infinite alternate;
+	animation: rainbow 3s infinite alternate;
+	-webkit-animation: rainbow 3s infinite alternate;
 }

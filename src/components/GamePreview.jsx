@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 
 import data from "../api/data.json";
 
+import { useGlobalContext } from "../context";
+
 function GamePreview() {
-	const [number, setNumber] = useState(0);
-	const [game, setGame] = useState(data[number]);
+	const { number, setNumber, game, setGame } = useGlobalContext();
 
 	const handlePreview = () => {
 		if (number <= 0) {
@@ -26,7 +29,7 @@ function GamePreview() {
 
 	useEffect(() => {
 		setGame(data[number]);
-	}, [number]);
+	}, [number, setGame]);
 
 	return (
 		<article className="sm:w-9/12 lg:w-3/6 flex justify-center items-center">
@@ -47,20 +50,24 @@ export const GameCard = ({ game }) => {
 	const [showMore, setShowMore] = useState(true);
 
 	return (
-		<section className="bg-dark text-gray-300 rounded flex flex-col 2xl:flex-row shadow-xl cursor-pointer hover:filter saturate-0 brightness-75">
-			<img
-				className="object-cover 2xl:w-3/6 rounded-t md:rounded-t-none md:rounded-l"
-				src={game.images.url}
-				alt={game.title}
-			/>
+		<section className="bg-dark text-gray-300 rounded shadow-xl hover:filter saturate-0 brightness-75">
+			<Link to={`/game/${game.id}`}>
+				<img
+					className="rounded-t cursor-pointer w-full"
+					src={game.images.url}
+					alt={game.title}
+				/>
+			</Link>
 			<section className="p-8 space-y-5 text-center">
 				<h1 className="text-center text-2xl font-semibold capitalize">
 					{game.title}
 				</h1>
-				<p className="text-sm sm:text-base text-left">
-					{showMore
-						? `${game.description.short.substring(0, 130)} ...`
-						: game.description.short}
+				<p
+					className={`text-sm sm:text-base text-left ${
+						showMore && `hidden`
+					} `}
+				>
+					{game.description.short}
 				</p>
 				<table
 					className={`text-left w-full text-sm sm:text-base ${
@@ -121,7 +128,7 @@ const ToggleButton = ({ showMore, setShowMore }) => {
 			}}
 			className="bg-primary mx-auto px-3 py-1 rounded shadow-xl text-white hover:opacity-80 transition-opacity duration-200"
 		>
-			{showMore ? "Show more" : "Show less"}
+			{showMore ? "Read More" : "Show less"}
 		</button>
 	);
 };

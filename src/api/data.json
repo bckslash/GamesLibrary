@@ -1,6 +1,6 @@
 [
 	{
-		"_id": "0001",
+		"id": "0",
 		"title": "Gtand Theft Auto V",
 		"reviews": {
 			"recent": "very positive",
@@ -46,7 +46,7 @@
 			"Comedy",
 			"Moddable"
 		],
-		"Languages": {
+		"languages": {
 			"full-audio": "english",
 			"subtitles": [
 				"english",
@@ -69,7 +69,7 @@
 	},
 
 	{
-		"_id": "0002",
+		"id": "1",
 		"title": "Forza Horizon 4",
 		"reviews": {
 			"recent": "very positive",
@@ -106,7 +106,7 @@
 			"Great Soundtrack",
 			"sports"
 		],
-		"Languages": {
+		"languages": {
 			"full-audio": "english",
 			"subtitles": [
 				"english",
@@ -126,7 +126,7 @@
 	},
 
 	{
-		"_id": "0003",
+		"id": "2",
 		"title": "Raft",
 		"reviews": {
 			"recent": "very positive",
@@ -160,7 +160,7 @@
 			"Singleplayer",
 			"Co-op"
 		],
-		"Languages": {
+		"languages": {
 			"full-audio": "english",
 			"subtitles": [
 				"english",
@@ -180,7 +180,7 @@
 	},
 
 	{
-		"_id": "0004",
+		"id": "3",
 		"title": "Terraria",
 		"reviews": {
 			"recent": "Overwhelmingly Positive ",
@@ -218,7 +218,7 @@
 			"Co-op",
 			"Platformer"
 		],
-		"Languages": {
+		"languages": {
 			"subtitles": [
 				"english",
 				"french",
@@ -237,7 +237,7 @@
 	},
 
 	{
-		"_id": "0005",
+		"id": "4",
 		"title": "Tom Clancy's Rainbow Six® Siege",
 		"reviews": {
 			"recent": "Very Positive ",
@@ -268,7 +268,7 @@
 			"Multiplayer",
 			"Co-op"
 		],
-		"Languages": {
+		"languages": {
 			"full-audio": "english",
 			"subtitles": [
 				"english",
@@ -288,7 +288,7 @@
 	},
 
 	{
-		"_id": "0006",
+		"id": "5",
 		"title": "Red Dead Redemption 2",
 		"reviews": {
 			"recent": "Very Positive ",
@@ -323,7 +323,7 @@
 			"Simulation",
 			"Multiplayer"
 		],
-		"Languages": {
+		"languages": {
 			"full-audio": "english",
 			"subtitles": [
 				"english",
