@@ -7,11 +7,11 @@ function About() {
 		<main className="h-semiscreen">
 			<Navbar />
 			<section className="page">
-				<div className="text-gray-300 prose-sm sm:prose-xl 2xl:px-80">
+				<div className="text-gray-300 2xl:px-80 space-y-10">
 					<h1 className="text-center text-3xl font-semibold ">
 						About Page
 					</h1>
-					<p>
+					<p className="text-gray-400 prose-lg">
 						Lorem, ipsum dolor sit amet consectetur adipisicing
 						elit. Exercitationem nam iste minima voluptates illo,
 						assumenda quae ad iure recusandae, consequuntur quis ut

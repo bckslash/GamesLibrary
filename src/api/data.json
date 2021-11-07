@@ -183,7 +183,7 @@
 		"id": "3",
 		"title": "Terraria",
 		"reviews": {
-			"recent": "Overwhelmingly Positive ",
+			"recent": "Overwhelmingly Positive",
 			"all": "Overwhelmingly Positive",
 			"metacritic": 83
 		},
@@ -240,7 +240,7 @@
 		"id": "4",
 		"title": "Tom Clancy's Rainbow Six® Siege",
 		"reviews": {
-			"recent": "Very Positive ",
+			"recent": "Very Positive",
 			"all": "Very Positive"
 		},
 		"links": {
@@ -291,7 +291,7 @@
 		"id": "5",
 		"title": "Red Dead Redemption 2",
 		"reviews": {
-			"recent": "Very Positive ",
+			"recent": "Very Positive",
 			"all": "Very Positive",
 			"metacritic": 93
 		},
@@ -341,6 +341,106 @@
 			"about-game": "America, 1899.\nArthur Morgan and the Van der Linde gang are outlaws on the run. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.\nNow featuring additional Story Mode content and a fully-featured Photo Mode, Red Dead Redemption 2 also includes free access to the shared living world of Red Dead Online, where players take on an array of roles to carve their own unique path on the frontier as they track wanted criminals as a Bounty Hunter, create a business as a Trader, unearth exotic treasures as a Collector or run an underground distillery as a Moonshiner and much more.\nWith all new graphical and technical enhancements for deeper immersion, Red Dead Redemption 2 for PC takes full advantage of the power of the PC to bring every corner of this massive, rich and detailed world to life including increased draw distances; higher quality global illumination and ambient occlusion for improved day and night lighting; improved reflections and deeper, higher resolution shadows at all distances; tessellated tree textures and improved grass and fur textures for added realism in every plant and animal.\nRed Dead Redemption 2 for PC also offers HDR support, the ability to run high-end display setups with 4K resolution and beyond, multi-monitor configurations, widescreen configurations, faster frame rates and more.",
 
 			"mature-description": "The developers describe the content like this:\nThis Game may contain content not appropriate for all ages, or may not be appropriate for viewing at work: General Mature Content"
+		}
+	},
+
+	{
+		"id": "6",
+		"title": "Mortal Kombat 11",
+		"reviews": {
+			"recent": "Very Positive",
+			"all": "Very Positive",
+			"metacritic": 82
+		},
+		"links": {
+			"buy": "https://store.steampowered.com/app/976310/Mortal_Kombat11/"
+		},
+		"video": {
+			"url": "https://cdn.akamai.steamstatic.com/steam/apps/256742032/movie480.webm?t=1549069590"
+		},
+		"images": {
+			"url": "https://cdn.akamai.steamstatic.com/steam/apps/976310/header.jpg?t=1634068925"
+		},
+		"release": "23 apr, 2019",
+		"creators": {
+			"developer": "NetherRealm Studios, QLOC, Shiver",
+			"publisher": "Warner Bros. Games, Warner Bros. Interactive Entertainment"
+		},
+		"tags": [
+			"Fighting",
+			"gore",
+			"violent",
+			"blood",
+			"Action",
+			"Multiplayer",
+			"Singleplayer",
+			"mature",
+			"arcade",
+			"horror",
+			"Atmospheric"
+		],
+		"languages": {
+			"full-audio": "english",
+			"subtitles": ["english", "french", "german", "italian"]
+		},
+		"description": {
+			"short": "Mortal Kombat is back and better than ever in the next evolution of the iconic franchise.",
+
+			"about-game": "MK is back and better than ever in the next evolution of the iconic franchise.The all new Custom Character Variations give you unprecedented control of your fighters to make them your own. The new graphics engine showcases every skull-shattering, eye-popping moment, bringing you so close to the fight you can feel it. Featuring a roster of new and returning Klassic Fighters, Mortal Kombat's best-in-class cinematic story mode continues the epic saga over 25 years in the making.",
+
+			"mature-description": "This Game may contain content not appropriate for all ages, or may not be appropriate for viewing at work: Frequent Violence or Gore, General Mature Content"
+		}
+	},
+
+	{
+		"id": "7",
+		"title": "Bloons TD 6",
+		"reviews": {
+			"recent": "Overwhelmingly Positive",
+			"all": "Overwhelmingly Positive",
+			"metacritic": 82
+		},
+		"links": {
+			"buy": "https://store.steampowered.com/app/960090/Bloons_TD_6/"
+		},
+		"video": {
+			"url": "https://cdn.akamai.steamstatic.com/steam/apps/256781516/movie480_vp9.webm?t=1586789526"
+		},
+		"images": {
+			"url": "https://cdn.akamai.steamstatic.com/steam/apps/960090/header.jpg?t=1634303522"
+		},
+		"release": "23 apr, 2019",
+		"creators": {
+			"developer": "Ninja Kiwi",
+			"publisher": "Ninja Kiwi"
+		},
+		"tags": [
+			"Strategy",
+			"tower defense",
+			"Multiplayer",
+			"Singleplayer",
+			"co-op",
+			"funny",
+			"difficult",
+			"indie",
+			"cartoony"
+		],
+		"languages": {
+			"subtitles": [
+				"english",
+				"french",
+				"german",
+				"italian",
+				"japanese",
+				"russian",
+				"swedish",
+				"finnish"
+			]
+		},
+		"description": {
+			"short": "The Bloons are back and better than ever! Get ready for a massive 3D tower defense game designed to give you hours and hours of the best strategy gaming available.",
+
+			"about-game": "Craft your perfect defense from a combination of awesome Monkey Towers, upgrades, Heroes, and activated abilities, then pop every last invading Bloon!Join millions of other players who enjoy the massive and ever-expanding features that deliver endless hours of the best strategy gaming available."
 		}
 	}
 ]

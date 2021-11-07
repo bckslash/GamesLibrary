@@ -20,7 +20,7 @@ function GamePreview() {
 	};
 
 	const handleNext = () => {
-		if (number >= data.length - 1) {
+		if (number >= 2) {
 			setNumber(0);
 		} else {
 			setNumber(number + 1);
