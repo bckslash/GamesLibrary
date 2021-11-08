@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
@@ -9,9 +9,24 @@ import data from "../api/data.json";
 function SingleGame() {
 	const { id } = useParams();
 	const [readMore, setReadMore] = useState(false);
-	const [game, setGame] = useState(data[id]);
+	const [game] = useState(data[id]);
 
-	console.log(game);
+	document.title = `Game Library | ${game.title}`;
+
+	window.scrollTo({
+		top: 0,
+		left: 0
+	});
+
+	const readMoreText = () => {
+		if (readMore) {
+			return game.description.about;
+		} else if (game.description.about.length >= 500) {
+			return `${game.description.about.slice(0, 500)} ...`;
+		} else {
+			return game.description.about;
+		}
+	};
 
 	return (
 		<main className="h-semiscreen">
@@ -31,18 +46,17 @@ function SingleGame() {
 									About game:
 								</h1>
 								<p className="text-justify text-gray-400 leading-relaxed">
-									{!readMore
-										? `${game.description["about-game"].slice(0,500)} ...`
-										: game.description["about-game"]}
+									{readMoreText()}
 								</p>
-								{game.description["about-game"].length >= 500 && 
+
+								{game.description.about.length >= 500 && (
 									<button
 										className="bg-primary text-white px-3 py-1 rounded shadow-md capitalize"
 										onClick={() => setReadMore(!readMore)}
 									>
-										{!readMore ? "read more" : "show less"}
+										{readMore ? "show less" : "read more"}
 									</button>
-								}
+								)}
 							</div>
 						</div>
 

@@ -7,6 +7,13 @@ import data from "../api/data.json";
 import { GameCard } from "../components/GamePreview";
 
 function Games() {
+	document.title = "Game Library | Games";
+
+	window.scrollTo({
+		top: 0,
+		left: 0,
+	});
+
 	return (
 		<main className="h-semiscreen">
 			<Navbar />

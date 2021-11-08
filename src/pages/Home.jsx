@@ -6,6 +6,13 @@ import GamePreview from "../components/GamePreview";
 import ButtonMain from "../components/Button";
 
 function Home() {
+	document.title = "Game Library";
+
+	window.scrollTo({
+		top: 0,
+		left: 0,
+	});
+
 	return (
 		<main className="h-semiscreen">
 			<Navbar />

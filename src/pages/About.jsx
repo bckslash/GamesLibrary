@@ -3,6 +3,13 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 function About() {
+	document.title = "Game Library | About";
+
+	window.scrollTo({
+		top: 0,
+		left: 0,
+	});
+
 	return (
 		<main className="h-semiscreen">
 			<Navbar />
