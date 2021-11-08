@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import data from "./api/data.json";
 const AppContext = React.createContext();
 
 function AppProvider({ children }) {
 	const [number, setNumber] = useState(0);
-	const [games, setGames] = useState(data);
+	const [games] = useState(data);
 	const [game, setGame] = useState(games[number]);
 
 	return (

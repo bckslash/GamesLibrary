@@ -15,7 +15,7 @@ function SingleGame() {
 
 	window.scrollTo({
 		top: 0,
-		left: 0
+		left: 0,
 	});
 
 	const readMoreText = () => {
@@ -113,9 +113,12 @@ function SingleGame() {
 							</table>
 							<h1 className="text-xl font-medium">Tags: </h1>
 							<div className="flex flex-wrap gap-2 overflow-hidden">
-								{game.tags.map((tag) => {
+								{game.tags.map((tag, index) => {
 									return (
-										<p className="capitalize bg-dark py-1 px-2 rounded shadow flex-grow text-center text-gray-400">
+										<p
+											key={index}
+											className="capitalize bg-dark py-1 px-2 rounded shadow flex-grow text-center text-gray-400"
+										>
 											{tag}
 										</p>
 									);
@@ -124,13 +127,18 @@ function SingleGame() {
 
 							<h1 className="text-xl font-medium">Languages: </h1>
 							<div className="flex flex-col gap-2 overflow-hidden">
-								{game.languages.subtitles.map((language) => {
-									return (
-										<p className="capitalize py-1 px-2 shadow border-b">
-											{language}
-										</p>
-									);
-								})}
+								{game.languages.subtitles.map(
+									(language, index) => {
+										return (
+											<p
+												key={index}
+												className="capitalize py-1 px-2 shadow border-b"
+											>
+												{language}
+											</p>
+										);
+									}
+								)}
 							</div>
 						</div>
 					</div>
