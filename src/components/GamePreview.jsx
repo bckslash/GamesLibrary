@@ -9,7 +9,8 @@ import data from "../api/data.json";
 import { useGlobalContext } from "../context";
 
 function GamePreview() {
-	const { number, setNumber, game, setGame } = useGlobalContext();
+	const { number, setNumber, game, setGame, APIgames } = useGlobalContext();
+	console.log(APIgames);
 
 	const handlePreview = () => {
 		if (number <= 0) {

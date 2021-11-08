@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import GamePreview from "../components/GamePreview";
 import ButtonMain from "../components/Button";
 
+import Loading from "../components/Loading";
+
+import { useGlobalContext } from "../context";
+
 function Home() {
 	document.title = "Game Library";
 
@@ -12,6 +16,12 @@ function Home() {
 		top: 0,
 		left: 0,
 	});
+
+	const { loading } = useGlobalContext();
+
+	if (loading) {
+		return <Loading />;
+	}
 
 	return (
 		<main className="h-semiscreen">
