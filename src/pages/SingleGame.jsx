@@ -13,10 +13,12 @@ function SingleGame() {
 
 	document.title = `Game Library | ${game.title}`;
 
-	window.scrollTo({
-		top: 0,
-		left: 0,
-	});
+	React.useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		});
+	}, []);
 
 	const readMoreText = () => {
 		if (readMore) {

@@ -8,10 +8,12 @@ import { FaReact } from "react-icons/fa";
 function ErrorPage() {
 	document.title = "Game Library | Error";
 
-	window.scrollTo({
-		top: 0,
-		left: 0,
-	});
+	React.useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		});
+	}, []);
 
 	return (
 		<main className="h-semiscreen">

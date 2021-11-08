@@ -10,7 +10,6 @@ import { useGlobalContext } from "../context";
 
 function GamePreview() {
 	const { number, setNumber, game, setGame, APIgames } = useGlobalContext();
-	console.log(APIgames);
 
 	const handlePreview = () => {
 		if (number <= 0) {
@@ -30,7 +29,8 @@ function GamePreview() {
 
 	useEffect(() => {
 		setGame(data[number]);
-	}, [number, setGame]);
+		console.log(APIgames);
+	}, [number, setGame, APIgames]);
 
 	return (
 		<article className="sm:w-9/12 lg:w-3/6 flex justify-center items-center">

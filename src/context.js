@@ -33,7 +33,7 @@ function AppProvider({ children }) {
 
 	useEffect(() => {
 		fetchData();
-	}, []);
+	}, [url]);
 
 	return (
 		<AppContext.Provider
