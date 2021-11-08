@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -12,16 +14,18 @@ import { useGlobalContext } from "../context";
 function Home() {
 	document.title = "Game Library";
 
-	window.scrollTo({
-		top: 0,
-		left: 0,
-	});
-
 	const { loading } = useGlobalContext();
 
 	if (loading) {
 		return <Loading />;
 	}
+
+	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		});
+	}, []);
 
 	return (
 		<main className="h-semiscreen">

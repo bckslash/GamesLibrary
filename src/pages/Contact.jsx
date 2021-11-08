@@ -7,10 +7,12 @@ import ButtonSubmit from "../components/Button";
 function Contact() {
 	document.title = "Game Library | Contact";
 
-	window.scrollTo({
-		top: 0,
-		left: 0,
-	});
+	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		});
+	}, []);
 
 	const nameContainer = useRef(null);
 	const emailContainer = useRef(null);

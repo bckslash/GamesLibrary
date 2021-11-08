@@ -5,10 +5,12 @@ import Footer from "../components/Footer";
 function About() {
 	document.title = "Game Library | About";
 
-	window.scrollTo({
-		top: 0,
-		left: 0,
-	});
+	React.useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+		});
+	}, []);
 
 	return (
 		<main className="h-semiscreen">
@@ -43,32 +45,7 @@ function About() {
 						provident, modi numquam, explicabo dolorum ipsa dolore
 						corrupti suscipit consequatur nobis quis tempora tenetur
 						quidem consequuntur natus repellat, facere atque
-						<br />
-						<br />
-						mollitia. Molestiae sint ratione iusto numquam
-						cupiditate, saepe aliquam exercitationem minima nulla?
-						Iure molestias illum deleniti commodi, quia saepe
-						expedita! Sed totam inventore facere doloremque hic,
-						voluptate veritatis quo, magnam accusamus explicabo
-						harum laudantium unde maxime excepturi ex! Nemo sequi
-						suscipit eaque, facilis voluptatem excepturi voluptate
-						consequatur dignissimos quae placeat! Tenetur quos,
-						provident asperiores voluptate temporibus quae repellat
-						iusto excepturi ipsum sit nobis totam, enim officiis
-						reprehenderit. Animi quibusdam minima molestiae, fuga
-						deserunt repellat temporibus ullam illum culpa nihil
-						maxime aspernatur nesciunt atque consequatur dolorem,
-						cum facere iure asperiores dicta, magnam nostrum
-						corporis exercitationem placeat tempore! Accusantium
-						voluptatibus eius vitae temporibus atque similique eaque
-						tenetur culpa. Voluptatum maiores eveniet porro adipisci
-						magni quas assumenda, odio aliquam ipsam dolorum
-						<br />
-						<br />
-						officiis quia rerum dicta obcaecati nesciunt ipsum
-						numquam illo dignissimos sapiente repellendus totam.
-						Porro quis dolor voluptate mollitia iusto perspiciatis
-						illo nesciunt, animi accusamus.
+						accusamus.
 					</p>
 				</div>
 			</section>
