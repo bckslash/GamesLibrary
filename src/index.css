@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .page {
-	@apply min-h-full px-8 py-16 md:px-40 md:py-20 bg-gradient-to-b from-primary to-secondary;
+	@apply px-8 py-16 md:px-40 md:py-20 bg-gradient-to-b from-primary to-secondary;
 }
 
 @keyframes rainbow {
@@ -28,7 +28,7 @@
 
 ::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 10px rgb(0, 0, 0, 0.25);
-	background-color: #171C26;
+	background-color: #171c26;
 }
 
 ::-webkit-scrollbar-thumb {

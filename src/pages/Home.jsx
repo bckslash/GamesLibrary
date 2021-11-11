@@ -7,10 +7,6 @@ import { Link } from "react-router-dom";
 import GamePreview from "../components/GamePreview";
 import ButtonMain from "../components/Button";
 
-import Loading from "../components/Loading";
-
-import { useGlobalContext } from "../context";
-
 function Home() {
 	document.title = "Game Library";
 
@@ -21,16 +17,12 @@ function Home() {
 		});
 	}, []);
 
-	const { loading } = useGlobalContext();
-
-	if (loading) {
-		return <Loading />;
-	}
+	
 
 	return (
-		<main className="h-semiscreen">
+		<main className="min-h-screen flex flex-col justify-between">
 			<Navbar />
-			<section className="page flex flex-col 2xl:flex-row justify-evenly items-center gap-10 space-y-10 2xl:space-y-0 md:gap-0">
+			<section className="page flex-grow flex flex-col gap-20 lg:flex-row lg:gap-10 justify-evenly items-center">
 				<section className="text-gray-300 space-y-5 text-center 2xl:text-left">
 					<p className="text-base">Are you done playing ?</p>
 					<h1 className="text-4xl font-semibold">

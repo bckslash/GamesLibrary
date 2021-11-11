@@ -8,7 +8,16 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
 
+import Loading from "./components/Loading";
+import { useGlobalContext } from "./context";
+
 function App() {
+	const { loading } = useGlobalContext();
+
+	if (loading) {
+		return <Loading />;
+	}
+
 	return (
 		<Router>
 			<Switch>

@@ -6,7 +6,7 @@ import { AiFillLinkedin } from "react-icons/ai";
 
 function Footer() {
 	return (
-		<div className="bg-dark px-14 py-10 flex flex-col sm:flex-row text-center md:text-left items-center justify-center flex-wrap gap-10 shadow-xl">
+		<footer className="bg-dark z-10 p-8 flex flex-col sm:flex-row text-center md:text-left items-center justify-center flex-wrap gap-8 shadow-xl">
 			<div
 				className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer hover:text-gray-500 transition-color duration-200 hover:animate-pulse rainbow"
 				onClick={() => {
@@ -29,7 +29,7 @@ function Footer() {
 					respective owners. MIT Licenced.
 				</p>
 			</div>
-			<ul className="text-gray-300 space-y-5">
+			<ul className="text-gray-300 space-y-4">
 				<li className="flex items-center gap-1 hover:text-gray-500 transition-color duration-200">
 					<AiFillLinkedin />
 					<a
@@ -51,7 +51,7 @@ function Footer() {
 					</a>
 				</li>
 			</ul>
-		</div>
+		</footer>
 	);
 }
 

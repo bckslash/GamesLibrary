@@ -13,9 +13,9 @@ function About() {
 	}, []);
 
 	return (
-		<main className="h-semiscreen">
+		<main className="min-h-screen flex flex-col justify-between">
 			<Navbar />
-			<section className="page">
+			<section className="page flex-grow">
 				<div className="text-gray-300 2xl:px-80 space-y-10">
 					<h1 className="text-center text-3xl font-semibold ">
 						About Page

@@ -80,9 +80,9 @@ function Contact() {
 	}, []);
 
 	return (
-		<main className="h-semiscreen">
+		<main className="min-h-screen flex flex-col justify-between">
 			<Navbar />
-			<section className="page">
+			<section className="page flex-grow">
 				<form
 					onSubmit={handleSubmit}
 					className="flex flex-col gap-5 md:w-6/12 mx-auto text-center text-gray-300"
@@ -116,7 +116,7 @@ function Contact() {
 						required
 					/>
 					<textarea
-						className="bg-transparent border-gray-900 rounded h-80"
+						className="bg-transparent border-gray-900 rounded h-96"
 						id="message"
 						type="text"
 						placeholder="MESSAGE"
