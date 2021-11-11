@@ -27,7 +27,7 @@ function Navbar() {
 			>
 				<Link
 					to="/"
-					className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer hover:animate-pulse rainbow "
+					className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer hover:animate-pulse rainbow transition-all "
 				>
 					<BiGame />
 					<h1>.LIB</h1>

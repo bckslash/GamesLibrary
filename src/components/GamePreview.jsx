@@ -33,7 +33,7 @@ function GamePreview() {
 	}, [number, setGame, APIgames]);
 
 	return (
-		<article className="sm:w-9/12 lg:w-3/6 flex justify-center items-center">
+		<article className="sm:w-9/12 lg:w-3/6 flex justify-between items-center">
 			<ArrowButtonLeft handlePreview={handlePreview}>
 				<IoMdArrowDropleft />
 			</ArrowButtonLeft>
@@ -51,7 +51,7 @@ export const GameCard = ({ game }) => {
 	const [showMore, setShowMore] = useState(true);
 
 	return (
-		<section className="bg-dark text-gray-300 rounded shadow-xl hover:filter saturate-0 brightness-75">
+		<section className="bg-dark flex-1 text-gray-300 rounded shadow-xl hover:filter saturate-0 brightness-75">
 			<Link to={`/game/${game.id}`}>
 				<img
 					className="rounded-t cursor-pointer w-full"

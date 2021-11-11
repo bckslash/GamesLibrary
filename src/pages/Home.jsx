@@ -17,12 +17,10 @@ function Home() {
 		});
 	}, []);
 
-	
-
 	return (
 		<main className="min-h-screen flex flex-col justify-between">
 			<Navbar />
-			<section className="page flex-grow flex flex-col gap-20 lg:flex-row lg:gap-10 justify-evenly items-center">
+			<section className="page flex-grow flex flex-col gap-20 lg:flex-row lg:gap-20 justify-evenly items-center">
 				<section className="text-gray-300 space-y-5 text-center 2xl:text-left">
 					<p className="text-base">Are you done playing ?</p>
 					<h1 className="text-4xl font-semibold">

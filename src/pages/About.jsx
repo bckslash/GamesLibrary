@@ -46,6 +46,21 @@ function About() {
 						corrupti suscipit consequatur nobis quis tempora tenetur
 						quidem consequuntur natus repellat, facere atque
 						accusamus.
+						<br />
+						Assumenda eveniet numquam corporis cumque consectetur
+						fuga dolore, dolores esse delectus rem adipisci veniam
+						veritatis eum praesentium illo ducimus cupiditate eius
+						nemo, vitae beatae, accusantium pariatur autem earum
+						quos! Facilis accusamus suscipit voluptates consectetur
+						a, consequuntur iste quia optio non tempora quae
+						temporibus architecto fugit ratione dolorum reiciendis
+						debitis rem? Fugiat maiores nobis quod non tempora!
+						Dolorum at minima hic sunt sequi ipsum, facilis rerum.
+						Doloremque exercitationem quibusdam dignissimos quod
+						provident, modi numquam, explicabo dolorum ipsa dolore
+						corrupti suscipit consequatur nobis quis tempora tenetur
+						quidem consequuntur natus repellat, facere atque
+						accusamus.
 					</p>
 				</div>
 			</section>

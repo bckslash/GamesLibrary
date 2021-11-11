@@ -10,6 +10,7 @@ module.exports = {
 			},
 			height: {
 				semiscreen: "90vh",
+				screenplus: "120vh",
 			},
 			animation: {
 				"spin-slow": "spin 4s linear infinite",
