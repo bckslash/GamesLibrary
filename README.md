@@ -22,7 +22,7 @@
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
+![Screen Shot](images/screen.png)
 
 This project is for my school assigment to build full website on any theme.
 
