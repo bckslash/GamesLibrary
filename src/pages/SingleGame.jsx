@@ -174,7 +174,13 @@ const Screenshots = () => {
 		<section className="overflow-x-scroll flex bg-local">
 			{loading ||
 				screens.map((item) => {
-					return <img src={item.image} alt="game screenshot" />;
+					return (
+						<img
+							key={item.id}
+							src={item.image}
+							alt="game screenshot"
+						/>
+					);
 				})}
 		</section>
 	);
