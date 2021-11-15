@@ -16,8 +16,6 @@ function SingleGame() {
 
 	document.title = `Game Library | ${data.name}`;
 
-	console.log(data);
-
 	React.useEffect(() => {
 		window.scrollTo({
 			top: 0,
