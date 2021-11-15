@@ -185,7 +185,7 @@ const CommentSection = ({ comments, handleRemove }) => {
 						<div className="border-b p-3 flex justify-between items-center text-text">
 							<button
 								onClick={() => handleRemove(comment.id)}
-								className="text-3xl"
+								className="text-3xl transition-all transform hover:scale-110 hover:opacity-80"
 							>
 								<TiDeleteOutline />
 							</button>
