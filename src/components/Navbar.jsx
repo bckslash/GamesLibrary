@@ -19,7 +19,7 @@ function Navbar() {
 	});
 
 	return (
-		<nav className="bg-dark transition-all sticky top-0 text-text z-10">
+		<nav className="bg-dark transition-all sticky top-0 text-text z-50">
 			<div
 				className={`px-8 py-4 flex justify-between md:justify-evenly items-center ${
 					hamburgerMenu && ""

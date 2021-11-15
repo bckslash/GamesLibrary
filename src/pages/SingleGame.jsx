@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
@@ -11,7 +11,7 @@ function SingleGame() {
 	const { id } = useParams();
 	const url = `https://api.rawg.io/api/games/${id}?`;
 
-	const [data, loading] = useFetch(url);
+	const { data, loading } = useFetch(url);
 	const [readMore, setReadMore] = useState(false);
 
 	document.title = `Game Library | ${data.name}`;
@@ -48,11 +48,7 @@ function SingleGame() {
 						<h1 className="text-4xl font-medium">{data.name}</h1>
 						<div className="flex space-y-15 gap-20 md:gap-10 2xl:gap-0 lg:space-y-0 2xl:space-x-10 flex-col 2xl:flex-row">
 							<div className="flex flex-col space-y-5 2xl:max-w-lg">
-								<video
-									className="shadow-md"
-									src=""
-									controls
-								></video>
+								<Screenshots />
 								<div className="space-y-2">
 									<h1 className="text-xl font-medium">
 										About game:
@@ -91,21 +87,10 @@ function SingleGame() {
 									Buy the game
 								</a>
 
+								<Metascore {...{ data }} />
 								<Table {...{ data }} />
-
-								<h1 className="text-xl font-medium">Tags: </h1>
-								<div className="flex flex-wrap gap-2 overflow-hidden">
-									{data.tags.map((tag) => {
-										return (
-											<p
-												key={tag.id}
-												className="capitalize bg-dark py-1 px-2 rounded shadow flex-grow text-center text-text"
-											>
-												{tag.name}
-											</p>
-										);
-									})}
-								</div>
+								<Tags {...{ data }} />
+								<Genres {...{ data }} />
 							</div>
 						</div>
 					</div>
@@ -115,6 +100,85 @@ function SingleGame() {
 		</>
 	);
 }
+
+const Metascore = ({ data }) => {
+	if (data.metacritic) {
+		return (
+			<div className="flex justify-end">
+				<h1 className="w-min p-3 rounded text-green-500 text-4xl border border-green-500">
+					{data.metacritic}
+				</h1>
+			</div>
+		);
+	}
+};
+
+const Genres = ({ data }) => {
+	return (
+		<>
+			<h1 className="text-xl font-medium">Genres: </h1>
+			<div className="flex flex-wrap gap-2 overflow-hidden">
+				{data.genres.map((genre) => {
+					return (
+						<p
+							key={genre.id}
+							className="capitalize bg-dark py-1 px-2 rounded shadow flex-grow text-center text-text"
+						>
+							{genre.name}
+						</p>
+					);
+				})}
+			</div>
+		</>
+	);
+};
+
+const Tags = ({ data }) => {
+	return (
+		<>
+			<h1 className="text-xl font-medium">Tags: </h1>
+			<div className="flex flex-wrap gap-2 overflow-hidden">
+				{data.tags.map((tag) => {
+					return (
+						<p
+							key={tag.id}
+							className="capitalize bg-dark py-1 px-2 rounded shadow flex-grow text-center text-text"
+						>
+							{tag.name}
+						</p>
+					);
+				})}
+			</div>
+		</>
+	);
+};
+
+const Screenshots = () => {
+	const { id } = useParams();
+	const url = `https://api.rawg.io/api/games/${id}/screenshots?`;
+	const { data, loading } = useFetch(url);
+	const [screens, setScreens] = useState([]);
+
+	const { results } = data;
+	useEffect(() => {
+		if (!loading) {
+			setScreens(results);
+		}
+	}, [data, loading, results]);
+
+	if (loading) {
+		return <h1>Loading...</h1>;
+	}
+
+	return (
+		<section className="overflow-x-scroll flex bg-local">
+			{loading ||
+				screens.map((item) => {
+					return <img src={item.image} alt="game screenshot" />;
+				})}
+		</section>
+	);
+};
 
 const Table = ({ data }) => {
 	return (
@@ -132,12 +196,7 @@ const Table = ({ data }) => {
 												{game.reviews.all}
 											</td>
 										</tr>
-										<tr>
-											<th>RELEASE DATE:</th>
-											<td className="capitalize text-gray-400">
-												{game.release}
-											</td>
-										</tr>
+										
 										<tr>
 										<th>PUBLISHER:</th>
 										<td className="capitalize text-gray-400">
@@ -145,7 +204,13 @@ const Table = ({ data }) => {
 										</td>
 									</tr> */}
 				<tr className="border-b border-gray-500">
-					<th>DEVELOPERS:</th>
+					<th>Release date:</th>
+					<td className="capitalize text-gray-400">
+						{data.released}
+					</td>
+				</tr>
+				<tr className="border-b border-gray-500">
+					<th>Developers:</th>
 					<td className="capitalize text-gray-400">
 						{data.developers.map((item) => {
 							return <p key={item.id}>{item.name}</p>;
@@ -153,7 +218,7 @@ const Table = ({ data }) => {
 					</td>
 				</tr>
 				<tr className="border-b border-gray-500">
-					<th>PUBLISHERS:</th>
+					<th>Publishers:</th>
 					<td className="capitalize text-gray-400">
 						{data.publishers.map((item) => {
 							return <p key={item.id}>{item.name}</p>;
@@ -161,8 +226,8 @@ const Table = ({ data }) => {
 					</td>
 				</tr>
 				<tr className="border-b border-gray-500">
-					<th>RATINGS:</th>
-					<td className="capitalize text-gray-400 space-y-2">
+					<th>Ratings:</th>
+					<td className="capitalize text-gray-400 space-y-1">
 						{data.ratings.map((item) => {
 							return (
 								<div key={item.id} className="flex space-x-2">

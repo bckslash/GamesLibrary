@@ -16,9 +16,9 @@ function ErrorPage() {
 	}, []);
 
 	return (
-		<main className="h-semiscreen">
+		<main className="min-h-screen flex flex-col justify-between">
 			<Navbar />
-			<section className="page text-gray-300 text-center space-y-10">
+			<section className="page flex-1 flex text-light flex-col text-center space-y-10">
 				<h1 className="text-4xl font-medium">Nothing here.</h1>
 				<div className="flex justify-center animate-pulse">
 					<FaReact className="text-9xl animate-spin-slow" />

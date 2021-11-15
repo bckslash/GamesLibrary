@@ -7,7 +7,7 @@ function AppProvider({ children }) {
 	const [games, setGames] = useState([]);
 	const [game, setGame] = useState({});
 
-	const [rawg, setRawg] = useState({});
+	// eslint-disable-next-line
 	const [page, setPage] = useState(1);
 
 	const [loading, setLoading] = useState(true);
@@ -23,16 +23,9 @@ function AppProvider({ children }) {
 					return resp.json();
 				})
 				.then((data) => {
-					const { next, results } = data;
-					const newData = {
-						next,
-						results,
-					};
-					setRawg(newData);
+					const { results } = data;
 					setGames(results);
-
 					setGame(results[number]);
-
 					setLoading(false);
 				});
 		} catch (error) {
@@ -43,6 +36,7 @@ function AppProvider({ children }) {
 
 	useEffect(() => {
 		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [url, page]);
 
 	return (

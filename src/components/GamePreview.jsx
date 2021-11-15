@@ -27,7 +27,7 @@ function GamePreview() {
 
 	useEffect(() => {
 		setGame(games[number]);
-	}, [number, setGame]);
+	}, [number, setGame, games]);
 
 	return (
 		<article className="sm:w-9/12 lg:w-1/3 flex justify-between items-center">
@@ -48,9 +48,9 @@ export const GameCard = ({ game }) => {
 	const [showMore, setShowMore] = useState(true);
 
 	return (
-		<section className="bg-dark flex-1 text-text rounded shadow-xl hover:filter saturate-0 brightness-75">
+		<section className="bg-dark flex-1 text-text rounded shadow-xl hover:filter saturate-0 brightness-75 transform hover:scale-110 z-10 transition-transform">
 			<img
-				className="rounded-t cursor-pointer w-full"
+				className="rounded-t w-full"
 				src={game.background_image}
 				alt={game.name}
 			/>

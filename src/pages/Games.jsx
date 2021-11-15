@@ -38,7 +38,7 @@ function Games() {
 			<main className="min-h-screen flex flex-col justify-between">
 				<Navbar />
 				<section className="page flex-1 text-center">
-					<div className="grid gap-10 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 items-start">
+					<div className="grid gap-10 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 items-center">
 						{games.map((game) => {
 							return <GameCard key={game.id} game={game} />;
 						})}

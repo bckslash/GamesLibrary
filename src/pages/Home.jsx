@@ -7,17 +7,7 @@ import { Link } from "react-router-dom";
 import GamePreview from "../components/GamePreview";
 import ButtonMain from "../components/Button";
 
-import { useFetch } from "../hooks/useFetch";
-
 function Home() {
-	const url = "https://api.rawg.io/api/games?";
-
-	const [data, loading] = useFetch(url);
-
-	if (!loading) {
-		console.log(data);
-	}
-
 	document.title = "Game Library";
 
 	useEffect(() => {
