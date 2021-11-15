@@ -80,54 +80,56 @@ function Contact() {
 	}, []);
 
 	return (
-		<main className="min-h-screen flex flex-col justify-between">
-			<Navbar />
-			<section className="page flex-grow">
-				<form
-					onSubmit={handleSubmit}
-					className="flex flex-col gap-5 md:w-6/12 mx-auto text-center text-gray-300"
-				>
-					<h2 className="text-gray-300 mb-10 text-2xl md:text-4xl font-semibold ">
-						Send us a feedback
-					</h2>
-					{valid || (
-						<ErrorMessage>Invalid Email Address</ErrorMessage>
-					)}
+		<>
+			<main className="min-h-screen flex flex-col justify-between">
+				<Navbar />
+				<section className="page flex-1 text-text">
+					<form
+						onSubmit={handleSubmit}
+						className="flex flex-col gap-5 md:w-6/12 mx-auto text-center"
+					>
+						<h2 className="mb-10 text-2xl md:text-4xl font-semibold ">
+							Send us a feedback
+						</h2>
+						{valid || (
+							<ErrorMessage>Invalid Email Address</ErrorMessage>
+						)}
 
-					{sent && (
-						<SuccessMessage>
-							The Feedback was sent successfully
-						</SuccessMessage>
-					)}
-					<input
-						className="bg-transparent border-gray-900 rounded"
-						id="name"
-						type="text"
-						placeholder="NAME"
-						ref={nameContainer}
-						required
-					/>
-					<input
-						className="bg-transparent border-gray-900 rounded"
-						id="email"
-						type="text"
-						placeholder="E-MAIL"
-						ref={emailContainer}
-						required
-					/>
-					<textarea
-						className="bg-transparent border-gray-900 rounded h-96"
-						id="message"
-						type="text"
-						placeholder="MESSAGE"
-						ref={messageContainer}
-						required
-					></textarea>
-					<ButtonSubmit type="submit">Submit</ButtonSubmit>
-				</form>
-			</section>
+						{sent && (
+							<SuccessMessage>
+								The Feedback was sent successfully
+							</SuccessMessage>
+						)}
+						<input
+							className="bg-transparent border-gray-900 rounded"
+							id="name"
+							type="text"
+							placeholder="NAME"
+							ref={nameContainer}
+							required
+						/>
+						<input
+							className="bg-transparent border-gray-900 rounded"
+							id="email"
+							type="text"
+							placeholder="E-MAIL"
+							ref={emailContainer}
+							required
+						/>
+						<textarea
+							className="bg-transparent border-gray-900 rounded h-96"
+							id="message"
+							type="text"
+							placeholder="MESSAGE"
+							ref={messageContainer}
+							required
+						></textarea>
+						<ButtonSubmit type="submit">Submit</ButtonSubmit>
+					</form>
+				</section>
+			</main>
 			<Footer />
-		</main>
+		</>
 	);
 }
 

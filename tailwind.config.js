@@ -4,9 +4,12 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				dark: "#171C26",
-				primary: "#164C66",
-				secondary: "#142435",
+				dark: "#171A21",
+				primary: "#2A475e",
+				secondary: "#1b2838",
+				lightblue: "#66c0f4",
+				light: "#c7d5e0",
+				text: "#c5c3c0",
 			},
 			height: {
 				semiscreen: "90vh",

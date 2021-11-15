@@ -5,7 +5,7 @@ import App from "./App";
 
 import { AppProvider } from "./context";
 
-ReactDOM.render(
+ReactDOM.render(      // .render by default, .hydrate on server
 	<React.StrictMode>
 		<AppProvider>
 			<App />

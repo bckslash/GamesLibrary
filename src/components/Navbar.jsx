@@ -19,7 +19,7 @@ function Navbar() {
 	});
 
 	return (
-		<nav className="bg-dark transition-all sticky top-0">
+		<nav className="bg-dark transition-all sticky top-0 text-text z-10">
 			<div
 				className={`px-8 py-4 flex justify-between md:justify-evenly items-center ${
 					hamburgerMenu && ""
@@ -27,7 +27,7 @@ function Navbar() {
 			>
 				<Link
 					to="/"
-					className="text-3xl sm:text-4xl text-gray-300 flex items-center font-semibold cursor-pointer hover:animate-pulse rainbow transition-all "
+					className="text-3xl sm:text-4xl flex items-center font-semibold cursor-pointer hover:animate-pulse rainbow transition-all "
 				>
 					<BiGame />
 					<h1>.LIB</h1>
@@ -36,7 +36,7 @@ function Navbar() {
 					onClick={() => {
 						setHamburgerMenu(!hamburgerMenu);
 					}}
-					className="text-gray-300 text-4xl"
+					className="text-4xl"
 				>
 					<GiHamburgerMenu
 						className={`${
@@ -54,7 +54,7 @@ function Navbar() {
 const NavbarLinks = ({ hamburgerMenu }) => {
 	return (
 		<ul
-			className={`text-gray-300 text-lg px-8 py-5 space-y-2 ${
+			className={`text-lg px-8 py-5 space-y-2 ${
 				hamburgerMenu ? "bg-dark absolute w-full" : "hidden"
 			} md:flex justify-center items-center md:space-y-0 gap-10`}
 		>

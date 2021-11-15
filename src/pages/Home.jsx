@@ -7,7 +7,17 @@ import { Link } from "react-router-dom";
 import GamePreview from "../components/GamePreview";
 import ButtonMain from "../components/Button";
 
+import { useFetch } from "../hooks/useFetch";
+
 function Home() {
+	const url = "https://api.rawg.io/api/games?";
+
+	const [data, loading] = useFetch(url);
+
+	if (!loading) {
+		console.log(data);
+	}
+
 	document.title = "Game Library";
 
 	useEffect(() => {
@@ -18,22 +28,24 @@ function Home() {
 	}, []);
 
 	return (
-		<main className="min-h-screen flex flex-col justify-between">
-			<Navbar />
-			<section className="page flex-grow flex flex-col gap-20 lg:flex-row lg:gap-20 justify-evenly items-center">
-				<section className="text-gray-300 space-y-5 text-center 2xl:text-left">
-					<p className="text-base">Are you done playing ?</p>
-					<h1 className="text-4xl font-semibold">
-						Explore and review games
-					</h1>
-					<Link to="/games">
-						<ButtonMain>Browse games</ButtonMain>
-					</Link>
+		<>
+			<main className="min-h-screen flex flex-col justify-between">
+				<Navbar />
+				<section className="page flex-1 flex flex-col gap-10 lg:flex-row justify-around items-center">
+					<section className="text-text space-y-5 text-center 2xl:text-left">
+						<p className="text-base">Are you done playing ?</p>
+						<h1 className="text-4xl font-semibold">
+							Explore and review games
+						</h1>
+						<Link to="/games">
+							<ButtonMain>Browse games</ButtonMain>
+						</Link>
+					</section>
+					<GamePreview />
 				</section>
-				<GamePreview />
-			</section>
+			</main>
 			<Footer />
-		</main>
+		</>
 	);
 }
 

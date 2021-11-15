@@ -1,28 +1,38 @@
 import React, { useState, useContext, useEffect } from "react";
 
-import data from "./api/data.json";
 const AppContext = React.createContext();
 
 function AppProvider({ children }) {
 	const [number, setNumber] = useState(0);
-	const [games] = useState(data);
-	const [game, setGame] = useState(games[number]);
+	const [games, setGames] = useState([]);
+	const [game, setGame] = useState({});
+
+	const [rawg, setRawg] = useState({});
+	const [page, setPage] = useState(1);
 
 	const [loading, setLoading] = useState(true);
-	const [APIgames, setAPIgames] = useState({});
 
 	const url = "https://api.rawg.io/api/games?";
-	const key = "79fef868b7604333b57ebde17d0922a8";
+	const apiKey = process.env.REACT_APP_RAWG_KEY;
 
 	const fetchData = async () => {
 		setLoading(true);
 		try {
-			await fetch(`${url}key=${key}`)
+			await fetch(`${url}key=${apiKey}&page=${page}`)
 				.then((resp) => {
 					return resp.json();
 				})
 				.then((data) => {
-					setAPIgames(data);
+					const { next, results } = data;
+					const newData = {
+						next,
+						results,
+					};
+					setRawg(newData);
+					setGames(results);
+
+					setGame(results[number]);
+
 					setLoading(false);
 				});
 		} catch (error) {
@@ -33,18 +43,19 @@ function AppProvider({ children }) {
 
 	useEffect(() => {
 		fetchData();
-	}, [url]);
+	}, [url, page]);
 
 	return (
 		<AppContext.Provider
 			value={{
-				games,
 				game,
 				setGame,
 				number,
 				setNumber,
-				APIgames,
 				loading,
+				games,
+				page,
+				setPage,
 			}}
 		>
 			{children}

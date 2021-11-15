@@ -3,12 +3,17 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@babel/preset-env": "^7.16.0",
+		"@babel/preset-react": "^7.16.0",
+		"@babel/register": "^7.16.0",
 		"@craco/craco": "^6.4.0",
 		"@tailwindcss/forms": "^0.3.4",
 		"@tailwindcss/typography": "^0.4.1",
 		"@testing-library/jest-dom": "^5.15.0",
 		"@testing-library/react": "^12.1.2",
 		"@testing-library/user-event": "^13.5.0",
+		"express": "^4.17.1",
+		"ignore-styles": "^5.0.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-icons": "^4.3.1",
@@ -21,7 +26,8 @@
 		"start": "craco start",
 		"build": "craco build",
 		"test": "craco test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"ssr": "node server/index.js"
 	},
 	"eslintConfig": {
 		"extends": [

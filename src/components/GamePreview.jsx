@@ -4,23 +4,21 @@ import { Link } from "react-router-dom";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 
-import data from "../api/data.json";
-
 import { useGlobalContext } from "../context";
 
 function GamePreview() {
-	const { number, setNumber, game, setGame, APIgames } = useGlobalContext();
+	const { number, setNumber, game, setGame, games } = useGlobalContext();
 
 	const handlePreview = () => {
 		if (number <= 0) {
-			setNumber(data.length - 1);
+			setNumber(games.length - 1);
 		} else {
 			setNumber(number - 1);
 		}
 	};
 
 	const handleNext = () => {
-		if (number >= 2) {
+		if (number >= 10) {
 			setNumber(0);
 		} else {
 			setNumber(number + 1);
@@ -28,12 +26,11 @@ function GamePreview() {
 	};
 
 	useEffect(() => {
-		setGame(data[number]);
-		console.log(APIgames);
-	}, [number, setGame, APIgames]);
+		setGame(games[number]);
+	}, [number, setGame]);
 
 	return (
-		<article className="sm:w-9/12 lg:w-3/6 flex justify-between items-center">
+		<article className="sm:w-9/12 lg:w-1/3 flex justify-between items-center">
 			<ArrowButtonLeft handlePreview={handlePreview}>
 				<IoMdArrowDropleft />
 			</ArrowButtonLeft>
@@ -51,51 +48,51 @@ export const GameCard = ({ game }) => {
 	const [showMore, setShowMore] = useState(true);
 
 	return (
-		<section className="bg-dark flex-1 text-gray-300 rounded shadow-xl hover:filter saturate-0 brightness-75">
-			<Link to={`/game/${game.id}`}>
-				<img
-					className="rounded-t cursor-pointer w-full"
-					src={game.images.url}
-					alt={game.title}
-				/>
-			</Link>
+		<section className="bg-dark flex-1 text-text rounded shadow-xl hover:filter saturate-0 brightness-75">
+			<img
+				className="rounded-t cursor-pointer w-full"
+				src={game.background_image}
+				alt={game.name}
+			/>
 			<section className="p-8 space-y-5 text-center">
-				<h1 className="text-center text-2xl font-semibold capitalize">
-					{game.title}
-				</h1>
-				<p
-					className={`text-sm sm:text-base text-left ${
-						showMore && `hidden`
-					} `}
-				>
-					{game.description.short}
-				</p>
-				<table
-					className={`text-left w-full text-sm sm:text-base ${
-						showMore && `hidden`
-					}`}
-				>
-					<tbody>
-						<tr>
-							<th>ALL REVIEWS:</th>
-							<td className="capitalize">{game.reviews.all}</td>
-						</tr>
-						<tr>
-							<th>RELEASE DATE:</th>
-							<td className="capitalize">{game.release}</td>
-						</tr>
-						<tr>
-							<th>DEVELOPER:</th>
-							<td className="capitalize">
-								{game.creators.developer}
-							</td>
-						</tr>
-					</tbody>
-				</table>
-
+				<Link to={`/game/${game.id}`}>
+					<h1 className="text-center text-2xl font-semibold capitalize hover:opacity-50 transition-opacity cursor-pointer">
+						{game.name}
+					</h1>
+				</Link>
+				<Table {...{ showMore, game }} />
 				<ToggleButton {...{ showMore, setShowMore }} />
 			</section>
 		</section>
+	);
+};
+
+const Table = ({ showMore, game }) => {
+	return (
+		<table
+			className={`text-left w-full text-sm sm:text-base ${
+				showMore && `hidden`
+			}`}
+		>
+			<tbody className="">
+				<tr className="border-b border-gray-500">
+					<th>RATING:</th>
+					<td className="capitalize">{game.rating}</td>
+				</tr>
+				<tr className="border-b border-gray-500">
+					<th>RELEASE DATE:</th>
+					<td className="capitalize">{game.released}</td>
+				</tr>
+				<tr className="border-b border-gray-500">
+					<th>GENRES</th>
+					<td className="capitalize flex space-x-2">
+						{game.genres.map((item) => {
+							return <h1 key={item.id}>{item.name}</h1>;
+						})}
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	);
 };
 
@@ -103,7 +100,7 @@ const ArrowButtonLeft = ({ handlePreview, children }) => {
 	return (
 		<button
 			onClick={() => handlePreview()}
-			className="text-4xl text-gray-300 bg-dark rounded-l py-10 hover:opacity-80 transition-opacity duration-200"
+			className="text-4xl text-text bg-dark rounded-l py-10 hover:opacity-80 transition-opacity duration-200"
 		>
 			{children}
 		</button>
@@ -114,7 +111,7 @@ const ArrowButtonRight = ({ handleNext, children }) => {
 	return (
 		<button
 			onClick={handleNext}
-			className="text-4xl text-gray-300 bg-dark rounded-r py-10 hover:opacity-80 transition-opacity duration-200"
+			className="text-4xl text-text bg-dark rounded-r py-10 hover:opacity-80 transition-opacity duration-200"
 		>
 			{children}
 		</button>
