@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 import ButtonSubmit from "../components/Button";
 
-import { TiDeleteOutline } from "react-icons/ti";
+import { RiDeleteBack2Fill } from "react-icons/ri";
 
 function Contact() {
 	document.title = "Game Library | Contact";
@@ -150,7 +150,7 @@ const Form = ({
 				required
 			/>
 			<textarea
-				className="bg-transparent border-gray-900 rounded h-96"
+				className="bg-transparent border-gray-900 rounded h-52"
 				id="message"
 				type="text"
 				placeholder="MESSAGE"
@@ -175,26 +175,31 @@ const CommentSection = ({ comments, handleRemove }) => {
 	}
 
 	return (
-		<article className="text-white mt-20 flex flex-col gap-10 md:w-6/12 mx-auto">
-			<h1 className="mb-10 text-2xl  md:text-4xl font-semibold text-center text-text">
+		<article className="text-white mt-32 flex flex-col gap-10 md:w-6/12 mx-auto">
+			<h1 className="text-2xl md:text-4xl font-semibold text-center text-text">
 				Comment section
 			</h1>
 			{comments.map((comment) => {
 				return (
-					<div key={comment.id} className="bg-dark rounded shadow ">
-						<div className="border-b p-3 flex justify-between items-center text-text">
+					<div
+						key={comment.id}
+						className="bg-dark rounded-t shadow-lg"
+					>
+						<div className="border-b py-4 px-4 md:text-lg flex justify-between items-center text-text">
 							<button
 								onClick={() => handleRemove(comment.id)}
-								className="text-3xl transition-all transform hover:scale-110 hover:opacity-80"
+								className="text-2xl md:text-3xl transition-opacity hover:opacity-80"
 							>
-								<TiDeleteOutline />
+								<RiDeleteBack2Fill />
 							</button>
 							<h1>{comment.date}</h1>
 						</div>
-						<div className="p-3 bg-primary ">
+						<div className="py-2 px-4 space-y-2 bg-primary rounded-b">
 							<div>
 								<h1>Name: </h1>
-								<p className="text-text">{comment.name}</p>
+								<p className="text-text capitalize">
+									{comment.name}
+								</p>
 							</div>
 							<div>
 								<h1>Email: </h1>
