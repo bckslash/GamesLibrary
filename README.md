@@ -58,7 +58,7 @@ git clone git@github.com:bckslash/GamesLibrary.git
 3. Install NPM packages
 
 ```sh
-npm -i
+npm i
 ```
 
 4. Run the app in the development mode.
@@ -85,4 +85,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/bckslash/Gam
 
 ## Authors
 
--   **Robert Smrek** - _TUKE Student_ - [Robert Smrek](https://github.com/bckslash) - \*\*
+-   **Robert Smrek** - _TUKE Student_ - [Robert Smrek](https://github.com/bckslash)
