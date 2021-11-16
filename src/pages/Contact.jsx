@@ -33,6 +33,11 @@ function Contact() {
 		return re.test(String(email).toLowerCase());
 	};
 
+	const validateName = (name) => {
+		const re = /^[^0-9()]+$/;
+		return re.test(String(name).toLowerCase());
+	};
+
 	const createID = () => {
 		return new Date().getTime().toString().slice(-6);
 	};
@@ -48,6 +53,12 @@ function Contact() {
 			if (!validateEmail(emailContainer.current.value)) {
 				setValid(false);
 				emailContainer.current.value = "";
+				return;
+			}
+
+			if (!validateName(nameContainer.current.value)) {
+				setValid(false);
+				nameContainer.current.value = "";
 				return;
 			}
 			const newData = {
@@ -83,6 +94,7 @@ function Contact() {
 		nameContainer.current.value = "";
 		emailContainer.current.value = "";
 		messageContainer.current.value = "";
+
 		radioContainer.current.checked = false;
 		likeYesContainer.current.checked = false;
 		likeNoContainer.current.checked = false;
@@ -92,6 +104,7 @@ function Contact() {
 		nameContainer.current.value = "";
 		emailContainer.current.value = "";
 		messageContainer.current.value = "";
+
 		radioContainer.current.checked = false;
 		likeYesContainer.current.checked = false;
 		likeNoContainer.current.checked = false;
@@ -152,7 +165,9 @@ const Form = ({
 			<h2 className="mb-10 text-2xl  md:text-4xl font-semibold">
 				Send us a feedback
 			</h2>
-			{valid || <ErrorMessage>Invalid Email Address</ErrorMessage>}
+			{valid || (
+				<ErrorMessage>Invalid Name or Email Address</ErrorMessage>
+			)}
 
 			{sent && (
 				<SuccessMessage>
@@ -163,7 +178,7 @@ const Form = ({
 				className="bg-transparent border-gray-900 rounded"
 				id="name"
 				type="text"
-				placeholder="*NAME"
+				placeholder="NAME*"
 				ref={nameContainer}
 				required
 			/>
@@ -171,7 +186,7 @@ const Form = ({
 				className="bg-transparent border-gray-900 rounded"
 				id="email"
 				type="text"
-				placeholder="*E-MAIL"
+				placeholder="E-MAIL*"
 				ref={emailContainer}
 				required
 			/>
@@ -190,7 +205,7 @@ const Form = ({
 				className="bg-transparent border-gray-900 rounded h-52"
 				id="message"
 				type="text"
-				placeholder="*MESSAGE"
+				placeholder="MESSAGE*"
 				ref={messageContainer}
 				required
 			></textarea>
