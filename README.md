@@ -85,4 +85,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/bckslash/Gam
 
 ## Authors
 
--   **Robert Smrek** - _TUKE Student_ - [Robert Smrek](https://github.com/bckslash) - \*\*
+-   **Robert Smrek** - _TUKE Student_ - [Robert Smrek](https://github.com/bckslash)
