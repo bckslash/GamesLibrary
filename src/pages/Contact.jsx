@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import ButtonSubmit from "../components/Button";
+import { FunctionalButton } from "../components/Button";
 
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
@@ -12,7 +13,10 @@ function Contact() {
 	const nameContainer = useRef(null);
 	const emailContainer = useRef(null);
 	const messageContainer = useRef(null);
+
 	const radioContainer = useRef(false);
+	const likeYesContainer = useRef(false);
+	const likeNoContainer = useRef(false);
 
 	const [comments, setComments] = useState(
 		localStorage.getItem("comments")
@@ -80,7 +84,18 @@ function Contact() {
 		emailContainer.current.value = "";
 		messageContainer.current.value = "";
 		radioContainer.current.checked = false;
+		likeYesContainer.current.checked = false;
+		likeNoContainer.current.checked = false;
 	}, [comments]);
+
+	const handleRefresh = () => {
+		nameContainer.current.value = "";
+		emailContainer.current.value = "";
+		messageContainer.current.value = "";
+		radioContainer.current.checked = false;
+		likeYesContainer.current.checked = false;
+		likeNoContainer.current.checked = false;
+	};
 
 	useEffect(() => {
 		nameContainer.current.focus();
@@ -104,6 +119,9 @@ function Contact() {
 							emailContainer,
 							messageContainer,
 							radioContainer,
+							handleRefresh,
+							likeYesContainer,
+							likeNoContainer,
 						}}
 					/>
 					<CommentSection {...{ comments, handleRemove }} />
@@ -122,6 +140,9 @@ const Form = ({
 	emailContainer,
 	messageContainer,
 	radioContainer,
+	handleRefresh,
+	likeYesContainer,
+	likeNoContainer,
 }) => {
 	return (
 		<form
@@ -142,7 +163,7 @@ const Form = ({
 				className="bg-transparent border-gray-900 rounded"
 				id="name"
 				type="text"
-				placeholder="NAME"
+				placeholder="*NAME"
 				ref={nameContainer}
 				required
 			/>
@@ -150,13 +171,13 @@ const Form = ({
 				className="bg-transparent border-gray-900 rounded"
 				id="email"
 				type="text"
-				placeholder="E-MAIL"
+				placeholder="*E-MAIL"
 				ref={emailContainer}
 				required
 			/>
-			<div className="flex items-center gap-3">
+			<div className="flex items-center gap-3 text-white">
 				<input
-					className="bg-transparent border-2 border-dark"
+					className="bg-transparent border-2 border-dark cursor-pointer"
 					ref={radioContainer}
 					type="radio"
 					name="radio"
@@ -169,32 +190,37 @@ const Form = ({
 				className="bg-transparent border-gray-900 rounded h-52"
 				id="message"
 				type="text"
-				placeholder="MESSAGE"
+				placeholder="*MESSAGE"
 				ref={messageContainer}
 				required
 			></textarea>
-			<div className="space-y-2 text-left">
-				<p>Do you liked the site</p>
-				<div className="space-x-2">
+			<div className="space-y-2 text-left text-white">
+				<p>Do you liked the site?</p>
+				<div className="space-x-2 text-text">
 					<label htmlFor="radio">Yes</label>
 					<input
-						className="bg-transparent border-2 border-dark"
+						className="bg-transparent border-2 border-dark cursor-pointer"
 						type="radio"
 						name="rating"
 						id="rating"
+						ref={likeYesContainer}
 						required
 					/>
 					<label htmlFor="radio">No</label>
 					<input
-						className="bg-transparent border-2 border-dark"
+						className="bg-transparent border-2 border-dark cursor-pointer"
 						type="radio"
 						name="rating"
 						id="rating"
+						ref={likeNoContainer}
 						required
 					/>
 				</div>
 			</div>
-			<ButtonSubmit type="submit">Submit</ButtonSubmit>
+			<div className="space-x-6">
+				<ButtonSubmit type="submit">Submit</ButtonSubmit>
+				<FunctionalButton fun={handleRefresh}>Refresh</FunctionalButton>
+			</div>
 		</form>
 	);
 };
