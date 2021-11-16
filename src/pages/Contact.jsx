@@ -12,6 +12,7 @@ function Contact() {
 	const nameContainer = useRef(null);
 	const emailContainer = useRef(null);
 	const messageContainer = useRef(null);
+	const radioContainer = useRef(false);
 
 	const [comments, setComments] = useState(
 		localStorage.getItem("comments")
@@ -37,7 +38,8 @@ function Contact() {
 		if (
 			nameContainer.current.value &&
 			emailContainer.current.value &&
-			messageContainer.current.value
+			messageContainer.current.value &&
+			radioContainer.current.checked
 		) {
 			if (!validateEmail(emailContainer.current.value)) {
 				setValid(false);
@@ -77,6 +79,7 @@ function Contact() {
 		nameContainer.current.value = "";
 		emailContainer.current.value = "";
 		messageContainer.current.value = "";
+		radioContainer.current.checked = false;
 	}, [comments]);
 
 	useEffect(() => {
@@ -100,6 +103,7 @@ function Contact() {
 							nameContainer,
 							emailContainer,
 							messageContainer,
+							radioContainer,
 						}}
 					/>
 					<CommentSection {...{ comments, handleRemove }} />
@@ -117,6 +121,7 @@ const Form = ({
 	nameContainer,
 	emailContainer,
 	messageContainer,
+	radioContainer,
 }) => {
 	return (
 		<form
@@ -149,6 +154,17 @@ const Form = ({
 				ref={emailContainer}
 				required
 			/>
+			<div className="flex items-center gap-3">
+				<input
+					className="bg-transparent border-2 border-dark"
+					ref={radioContainer}
+					type="radio"
+					name="radio"
+					id="radio"
+					required
+				/>
+				<p>I accept the terms of use</p>
+			</div>
 			<textarea
 				className="bg-transparent border-gray-900 rounded h-52"
 				id="message"
@@ -157,6 +173,27 @@ const Form = ({
 				ref={messageContainer}
 				required
 			></textarea>
+			<div className="space-y-2 text-left">
+				<p>Do you liked the site</p>
+				<div className="space-x-2">
+					<label htmlFor="radio">Yes</label>
+					<input
+						className="bg-transparent border-2 border-dark"
+						type="radio"
+						name="rating"
+						id="rating"
+						required
+					/>
+					<label htmlFor="radio">No</label>
+					<input
+						className="bg-transparent border-2 border-dark"
+						type="radio"
+						name="rating"
+						id="rating"
+						required
+					/>
+				</div>
+			</div>
 			<ButtonSubmit type="submit">Submit</ButtonSubmit>
 		</form>
 	);
