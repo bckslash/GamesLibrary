@@ -58,7 +58,7 @@ git clone git@github.com:bckslash/GamesLibrary.git
 3. Install NPM packages
 
 ```sh
-npm -i
+npm i
 ```
 
 4. Run the app in the development mode.
