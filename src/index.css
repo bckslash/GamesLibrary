@@ -35,3 +35,13 @@
 	border-radius: 10px;
 	background-color: whitesmoke;
 }
+
+.snap-container {
+	scroll-snap-type: mandatory;
+	scroll-snap-points-x: repeat(100px);
+	scroll-snap-type: x mandatory;
+}
+
+.snap-child {
+	scroll-snap-align: start;
+}

@@ -42,16 +42,17 @@ function SingleGame() {
 			<main className="min-h-screen flex flex-col justify-between">
 				<Navbar />
 				<section className="page flex-1 text-text flex justify-center">
-					<div className="space-y-5 bg-dark p-10 bg-opacity-50 rounded xl:w-4/5">
+					<div className="space-y-6 bg-dark p-5 lg:p-10 bg-opacity-50 rounded xl:w-4/5">
 						<h1 className="text-4xl font-medium">{data.name}</h1>
+
 						<div className="flex space-y-15 gap-20 md:gap-10 2xl:gap-0 lg:space-y-0 2xl:space-x-10 flex-col 2xl:flex-row">
-							<div className="flex flex-col space-y-5 2xl:max-w-lg">
+							<div className="flex flex-col space-y-6 2xl:max-w-lg">
 								<Screenshots />
-								<div className="space-y-2">
+								<div className="space-y-3">
 									<h1 className="text-xl font-medium">
 										About game:
 									</h1>
-									<p className="text-justify text-gray-400 leading-relaxed">
+									<p className="text-justify text-sm md:text-base text-gray-400 leading-relaxed">
 										{readMoreText()}
 									</p>
 
@@ -70,14 +71,14 @@ function SingleGame() {
 								</div>
 							</div>
 
-							<div className="flex flex-col space-y-5">
+							<div className="flex flex-col space-y-6 text-sm md:text-base">
 								<img
 									className="shadow-md"
 									src={data.background_image}
 									alt={data.slug}
 								/>
 								<a
-									className="text-green-500 bg-dark text-center py-2 rounded shadow-md hover:animate-pulse"
+									className="text-green-500 xltext-lg bg-dark text-center py-2 rounded shadow-md hover:animate-pulse"
 									href={data.website}
 									target="_blank"
 									rel="noopener noreferrer"
@@ -85,10 +86,10 @@ function SingleGame() {
 									Buy the game
 								</a>
 
-								<Metascore {...{ data }} />
+								{data.metacritic && <Metascore {...{ data }} />}
 								<Table {...{ data }} />
-								<Tags {...{ data }} />
-								<Genres {...{ data }} />
+								{data.tags && <Tags {...{ data }} />}
+								{data.genres && <Genres {...{ data }} />}
 							</div>
 						</div>
 					</div>
@@ -100,21 +101,20 @@ function SingleGame() {
 }
 
 const Metascore = ({ data }) => {
-	if (data.metacritic) {
-		return (
-			<div className="flex justify-end">
-				<h1 className="w-min p-3 rounded text-green-500 text-4xl border border-green-500">
-					{data.metacritic}
-				</h1>
-			</div>
-		);
-	}
+	return (
+		<div className="text-green-500 flex justify-start items-center space-x-3">
+			<h1 className="w-min p-3 rounded text-sm md:text-2xl border border-green-500">
+				{data.metacritic}
+			</h1>
+			<h1 className="text-sm md:text-2xl uppercase">Metascore</h1>
+		</div>
+	);
 };
 
 const Genres = ({ data }) => {
 	return (
 		<>
-			<h1 className="text-xl font-medium">Genres: </h1>
+			<h1 className="text-sm md:text-base font-medium">Genres: </h1>
 			<div className="flex flex-wrap gap-2 overflow-hidden">
 				{data.genres.map((genre) => {
 					return (
@@ -134,8 +134,8 @@ const Genres = ({ data }) => {
 const Tags = ({ data }) => {
 	return (
 		<>
-			<h1 className="text-xl font-medium">Tags: </h1>
-			<div className="flex flex-wrap gap-2 overflow-hidden">
+			<h1 className="text-sm md:text-base font-medium">Tags: </h1>
+			<div className="flex flex-wrap gap-2 overflow-hidden text-sm md:text-base">
 				{data.tags.map((tag) => {
 					return (
 						<p
@@ -154,6 +154,7 @@ const Tags = ({ data }) => {
 const Screenshots = () => {
 	const { id } = useParams();
 	const url = `https://api.rawg.io/api/games/${id}/screenshots?`;
+
 	const { data, loading } = useFetch(url);
 	const [screens, setScreens] = useState([]);
 
@@ -169,14 +170,15 @@ const Screenshots = () => {
 	}
 
 	return (
-		<section className="overflow-x-scroll flex bg-local">
+		<section className="overflow-x-scroll flex gap-2 py-2 snap-container">
 			{loading ||
 				screens.map((item) => {
 					return (
 						<img
+							className="rounded shadow-md snap-child"
 							key={item.id}
 							src={item.image}
-							alt="game screenshot"
+							alt={`screenshot ${item.id}`}
 						/>
 					);
 				})}
@@ -186,7 +188,7 @@ const Screenshots = () => {
 
 const Table = ({ data }) => {
 	return (
-		<table className="text-justify w-full text-sm sm:text-base">
+		<table className="text-justify w-full text-sm md:text-base">
 			<tbody>
 				{/* <tr>
 											<th>RECENT REVIEWS:</th>

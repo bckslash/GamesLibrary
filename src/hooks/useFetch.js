@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useFetch = (url) => {
 	const [data, setData] = useState({});
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	const key = process.env.REACT_APP_RAWG_KEY;
 
