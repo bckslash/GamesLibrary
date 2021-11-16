@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import ButtonSubmit from "../components/Button";
-import { FunctionalButton } from "../components/Button";
 
+import { FunctionalButton } from "../components/Button";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
 function Contact() {
@@ -27,15 +27,15 @@ function Contact() {
 	const [valid, setValid] = useState(true);
 	const [sent, setSent] = useState(false);
 
+	const validateName = (name) => {
+		const re = /^[^0-9()]+$/;
+		return re.test(String(name).toLowerCase());
+	};
+
 	const validateEmail = (email) => {
 		const re =
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return re.test(String(email).toLowerCase());
-	};
-
-	const validateName = (name) => {
-		const re = /^[^0-9()]+$/;
-		return re.test(String(name).toLowerCase());
 	};
 
 	const createID = () => {
@@ -126,15 +126,15 @@ function Contact() {
 					<Form
 						{...{
 							handleSubmit,
+							handleRefresh,
 							valid,
 							sent,
 							nameContainer,
 							emailContainer,
-							messageContainer,
-							radioContainer,
-							handleRefresh,
 							likeYesContainer,
 							likeNoContainer,
+							messageContainer,
+							radioContainer,
 						}}
 					/>
 					<CommentSection {...{ comments, handleRemove }} />
@@ -147,15 +147,15 @@ function Contact() {
 
 const Form = ({
 	handleSubmit,
+	handleRefresh,
 	valid,
 	sent,
 	nameContainer,
 	emailContainer,
-	messageContainer,
-	radioContainer,
-	handleRefresh,
 	likeYesContainer,
 	likeNoContainer,
+	messageContainer,
+	radioContainer,
 }) => {
 	return (
 		<form
