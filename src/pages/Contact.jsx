@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import ButtonSubmit from "../components/Button";
-
 import { FunctionalButton } from "../components/Button";
+
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
 function Contact() {
@@ -14,7 +14,7 @@ function Contact() {
 	const emailContainer = useRef(null);
 	const messageContainer = useRef(null);
 
-	const radioContainer = useRef(false);
+	const checkboxContainer = useRef(false);
 	const likeYesContainer = useRef(false);
 	const likeNoContainer = useRef(false);
 
@@ -48,7 +48,7 @@ function Contact() {
 			nameContainer.current.value &&
 			emailContainer.current.value &&
 			messageContainer.current.value &&
-			radioContainer.current.checked
+			checkboxContainer.current.checked
 		) {
 			if (!validateEmail(emailContainer.current.value)) {
 				setValid(false);
@@ -95,7 +95,7 @@ function Contact() {
 		emailContainer.current.value = "";
 		messageContainer.current.value = "";
 
-		radioContainer.current.checked = false;
+		checkboxContainer.current.checked = false;
 		likeYesContainer.current.checked = false;
 		likeNoContainer.current.checked = false;
 	}, [comments]);
@@ -105,7 +105,7 @@ function Contact() {
 		emailContainer.current.value = "";
 		messageContainer.current.value = "";
 
-		radioContainer.current.checked = false;
+		checkboxContainer.current.checked = false;
 		likeYesContainer.current.checked = false;
 		likeNoContainer.current.checked = false;
 	};
@@ -134,7 +134,7 @@ function Contact() {
 							likeYesContainer,
 							likeNoContainer,
 							messageContainer,
-							radioContainer,
+							checkboxContainer,
 						}}
 					/>
 					<CommentSection {...{ comments, handleRemove }} />
@@ -155,10 +155,12 @@ const Form = ({
 	likeYesContainer,
 	likeNoContainer,
 	messageContainer,
-	radioContainer,
+	checkboxContainer,
 }) => {
 	return (
 		<form
+			action="POST"
+			data-netlify="true"
 			onSubmit={handleSubmit}
 			className="flex flex-col gap-5 md:w-6/12 mx-auto text-center"
 		>
@@ -192,11 +194,11 @@ const Form = ({
 			/>
 			<div className="flex items-center gap-3 text-white">
 				<input
-					className="bg-transparent border-2 border-dark cursor-pointer"
-					ref={radioContainer}
-					type="radio"
-					name="radio"
-					id="radio"
+					className="bg-transparent border-2 border-dark cursor-pointer rounded"
+					ref={checkboxContainer}
+					type="checkbox"
+					name="checkbox"
+					id="checkbox"
 					required
 				/>
 				<p>I accept the terms of use</p>
@@ -210,7 +212,7 @@ const Form = ({
 				required
 			></textarea>
 			<div className="space-y-2 text-left text-white">
-				<p>Do you liked the site?</p>
+				<p>Did you liked the site?</p>
 				<div className="space-x-2 text-text">
 					<label htmlFor="radio">Yes</label>
 					<input
