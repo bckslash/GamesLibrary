@@ -161,6 +161,7 @@ const Form = ({
 		<form
 			action="POST"
 			data-netlify="true"
+			// onClick={handleSubmit}
 			className="flex flex-col gap-5 md:w-6/12 mx-auto text-center"
 		>
 			<h2 className="mb-10 text-2xl  md:text-4xl font-semibold">
@@ -189,7 +190,7 @@ const Form = ({
 				className="bg-transparent border-gray-900 rounded"
 				name="email"
 				id="email"
-				type="text"
+				type="email"
 				placeholder="E-MAIL*"
 				ref={emailContainer}
 				required
@@ -236,6 +237,9 @@ const Form = ({
 						required
 					/>
 				</div>
+			</div>
+			<div>
+				<div data-netlify-recaptcha="true"></div>
 			</div>
 			<div className="space-x-6">
 				<ButtonSubmit type="button">
