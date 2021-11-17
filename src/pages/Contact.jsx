@@ -159,9 +159,11 @@ const Form = ({
 }) => {
 	return (
 		<form
+			name="contact"
+			netlify
 			action="POST"
 			data-netlify="true"
-			// onClick={handleSubmit}
+			onSubmit="sumbit"
 			className="flex flex-col gap-5 md:w-6/12 mx-auto text-center"
 		>
 			<h2 className="mb-10 text-2xl  md:text-4xl font-semibold">
