@@ -248,25 +248,13 @@ const Form = ({
 
 const NetlifyForm = () => {
 	return (
-		<form
-			name="contact"
-			method="POST"
-			data-netlify="true"
-			onSubmit="submit"
-		>
-			<p>
-				<label>
-					Name <input type="text" name="name" />
-				</label>
-			</p>
-			<p>
-				<label>
-					Email <input type="email" name="email" />
-				</label>
-			</p>
-			<p>
-				<button type="submit">Send</button>
-			</p>
+		<form name="contact-form" method="POST" data-netlify="true">
+			<input type="hidden" name="form-name" value="contact-form" />
+
+			<input type="text" name="name" placeholder="name" />
+			<input type="email" name="email" placeholder="email" />
+			<textarea placeholder="message" name="messag" />
+			<button type="submit">Submit</button>
 		</form>
 	);
 };
