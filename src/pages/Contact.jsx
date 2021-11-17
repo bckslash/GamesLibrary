@@ -176,8 +176,10 @@ const Form = ({
 					The Feedback was sent successfully
 				</SuccessMessage>
 			)}
+
 			<input
 				className="bg-transparent border-gray-900 rounded"
+				name="name"
 				id="name"
 				type="text"
 				placeholder="NAME*"
@@ -186,6 +188,7 @@ const Form = ({
 			/>
 			<input
 				className="bg-transparent border-gray-900 rounded"
+				name="email"
 				id="email"
 				type="text"
 				placeholder="E-MAIL*"
@@ -205,6 +208,7 @@ const Form = ({
 			</div>
 			<textarea
 				className="bg-transparent border-gray-900 rounded h-52"
+				name="message"
 				id="message"
 				type="text"
 				placeholder="MESSAGE*"
@@ -235,7 +239,9 @@ const Form = ({
 				</div>
 			</div>
 			<div className="space-x-6">
-				<ButtonSubmit type="submit">Submit</ButtonSubmit>
+				<ButtonSubmit type="submit" value="submit">
+					Submit
+				</ButtonSubmit>
 				<FunctionalButton fun={handleRefresh}>Refresh</FunctionalButton>
 			</div>
 		</form>
