@@ -10,120 +10,120 @@ import { RiDeleteBack2Fill } from "react-icons/ri";
 function Contact() {
 	document.title = "Game Library | Contact";
 
-	const nameContainer = useRef(null);
-	const emailContainer = useRef(null);
-	const messageContainer = useRef(null);
+	// const nameContainer = useRef(null);
+	// const emailContainer = useRef(null);
+	// const messageContainer = useRef(null);
 
-	const checkboxContainer = useRef(false);
-	const likeYesContainer = useRef(false);
-	const likeNoContainer = useRef(false);
+	// const checkboxContainer = useRef(false);
+	// const likeYesContainer = useRef(false);
+	// const likeNoContainer = useRef(false);
 
-	const [comments, setComments] = useState(
-		localStorage.getItem("comments")
-			? JSON.parse(localStorage.getItem("comments"))
-			: []
-	);
+	// const [comments, setComments] = useState(
+	// 	localStorage.getItem("comments")
+	// 		? JSON.parse(localStorage.getItem("comments"))
+	// 		: []
+	// );
 
-	const [valid, setValid] = useState(true);
-	const [sent, setSent] = useState(false);
+	// const [valid, setValid] = useState(true);
+	// const [sent, setSent] = useState(false);
 
-	const validateName = (name) => {
-		const re = /^[^0-9()]+$/;
-		return re.test(String(name).toLowerCase());
-	};
+	// const validateName = (name) => {
+	// 	const re = /^[^0-9()]+$/;
+	// 	return re.test(String(name).toLowerCase());
+	// };
 
-	const validateEmail = (email) => {
-		const re =
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return re.test(String(email).toLowerCase());
-	};
+	// const validateEmail = (email) => {
+	// 	const re =
+	// 		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	// 	return re.test(String(email).toLowerCase());
+	// };
 
-	const createID = () => {
-		return new Date().getTime().toString().slice(-6);
-	};
+	// const createID = () => {
+	// 	return new Date().getTime().toString().slice(-6);
+	// };
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (
-			nameContainer.current.value &&
-			emailContainer.current.value &&
-			messageContainer.current.value &&
-			checkboxContainer.current.checked
-		) {
-			if (!validateEmail(emailContainer.current.value)) {
-				setValid(false);
-				emailContainer.current.value = "";
-				return;
-			}
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	if (
+	// 		nameContainer.current.value &&
+	// 		emailContainer.current.value &&
+	// 		messageContainer.current.value &&
+	// 		checkboxContainer.current.checked
+	// 	) {
+	// 		if (!validateEmail(emailContainer.current.value)) {
+	// 			setValid(false);
+	// 			emailContainer.current.value = "";
+	// 			return;
+	// 		}
 
-			if (!validateName(nameContainer.current.value)) {
-				setValid(false);
-				nameContainer.current.value = "";
-				return;
-			}
-			const newData = {
-				id: createID(),
-				name: nameContainer.current.value,
-				email: emailContainer.current.value,
-				message: messageContainer.current.value,
-				date: new Date().toDateString(),
-			};
+	// 		if (!validateName(nameContainer.current.value)) {
+	// 			setValid(false);
+	// 			nameContainer.current.value = "";
+	// 			return;
+	// 		}
+	// 		const newData = {
+	// 			id: createID(),
+	// 			name: nameContainer.current.value,
+	// 			email: emailContainer.current.value,
+	// 			message: messageContainer.current.value,
+	// 			date: new Date().toDateString(),
+	// 		};
 
-			setComments([...comments, newData]);
-			setSent(true);
-		}
-	};
+	// 		setComments([...comments, newData]);
+	// 		setSent(true);
+	// 	}
+	// };
 
-	const handleRemove = (id) => {
-		setComments(
-			comments.filter((comment) => {
-				return comment.id !== id;
-			})
-		);
-	};
+	// const handleRemove = (id) => {
+	// 	setComments(
+	// 		comments.filter((comment) => {
+	// 			return comment.id !== id;
+	// 		})
+	// 	);
+	// };
 
-	useEffect(() => {
-		setTimeout(() => {
-			setValid(true);
-			setSent(false);
-		}, 5000);
-	}, [valid, sent]);
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		setValid(true);
+	// 		setSent(false);
+	// 	}, 5000);
+	// }, [valid, sent]);
 
-	useEffect(() => {
-		localStorage.setItem("comments", JSON.stringify(comments));
-		nameContainer.current.value = "";
-		emailContainer.current.value = "";
-		messageContainer.current.value = "";
+	// useEffect(() => {
+	// 	localStorage.setItem("comments", JSON.stringify(comments));
+	// 	nameContainer.current.value = "";
+	// 	emailContainer.current.value = "";
+	// 	messageContainer.current.value = "";
 
-		checkboxContainer.current.checked = false;
-		likeYesContainer.current.checked = false;
-		likeNoContainer.current.checked = false;
-	}, [comments]);
+	// 	checkboxContainer.current.checked = false;
+	// 	likeYesContainer.current.checked = false;
+	// 	likeNoContainer.current.checked = false;
+	// }, [comments]);
 
-	const handleRefresh = () => {
-		nameContainer.current.value = "";
-		emailContainer.current.value = "";
-		messageContainer.current.value = "";
+	// const handleRefresh = () => {
+	// 	nameContainer.current.value = "";
+	// 	emailContainer.current.value = "";
+	// 	messageContainer.current.value = "";
 
-		checkboxContainer.current.checked = false;
-		likeYesContainer.current.checked = false;
-		likeNoContainer.current.checked = false;
-	};
+	// 	checkboxContainer.current.checked = false;
+	// 	likeYesContainer.current.checked = false;
+	// 	likeNoContainer.current.checked = false;
+	// };
 
-	useEffect(() => {
-		nameContainer.current.focus();
-		window.scrollTo({
-			top: 0,
-			left: 0,
-		});
-	}, []);
+	// useEffect(() => {
+	// 	nameContainer.current.focus();
+	// 	window.scrollTo({
+	// 		top: 0,
+	// 		left: 0,
+	// 	});
+	// }, []);
 
 	return (
 		<>
 			<main className="min-h-screen flex flex-col justify-between">
 				<Navbar />
 				<section className="page flex-1 text-text">
-					<Form
+					{/* <Form
 						{...{
 							handleSubmit,
 							handleRefresh,
@@ -136,9 +136,9 @@ function Contact() {
 							messageContainer,
 							checkboxContainer,
 						}}
-					/>
+					/> */}
 					<NetlifyForm />
-					<CommentSection {...{ comments, handleRemove }} />
+					{/* <CommentSection {...{ comments, handleRemove }} /> */}
 				</section>
 			</main>
 			<Footer />
@@ -248,12 +248,49 @@ const Form = ({
 
 const NetlifyForm = () => {
 	return (
-		<form name="contact-form" method="POST" data-netlify="true">
+		<form
+			name="contact-form"
+			method="post"
+			data-netlify="true"
+			onSubmit="submit"
+		>
 			<input type="hidden" name="form-name" value="contact-form" />
 
-			<input type="text" name="name" placeholder="name" />
-			<input type="email" name="email" placeholder="email" />
-			<textarea placeholder="message" name="messag" />
+			<div>
+				<label htmlFor="name">
+					name:
+					<br />
+					<input
+						id="name"
+						type="text"
+						name="name"
+						placeholder="name"
+					/>
+				</label>
+			</div>
+			<div>
+				<label htmlFor="email">
+					email:
+					<br />
+					<input
+						id="email"
+						type="email"
+						name="email"
+						placeholder="email"
+					/>
+				</label>
+			</div>
+			<div>
+				<label htmlFor="message">
+					message:
+					<br />
+					<textarea
+						id="message"
+						placeholder="message"
+						name="message"
+					/>
+				</label>
+			</div>
 			<button type="submit">Submit</button>
 		</form>
 	);
