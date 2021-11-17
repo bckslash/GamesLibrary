@@ -249,12 +249,12 @@ function Contact() {
 const NetlifyForm = () => {
 	return (
 		<form
-			name="contact-form"
+			name="contact"
 			method="post"
 			data-netlify="true"
 			onSubmit="submit"
 		>
-			<input type="hidden" name="form-name" value="contact-form" />
+			<input type="hidden" name="form-name" value="contact" />
 
 			<div>
 				<label htmlFor="name">
