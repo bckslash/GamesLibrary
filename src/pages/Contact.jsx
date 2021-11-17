@@ -137,6 +137,7 @@ function Contact() {
 							checkboxContainer,
 						}}
 					/>
+					<NetlifyForm />
 					<CommentSection {...{ comments, handleRemove }} />
 				</section>
 			</main>
@@ -160,10 +161,7 @@ const Form = ({
 	return (
 		<form
 			name="contact"
-			netlify
-			action="POST"
-			data-netlify="true"
-			onSubmit="sumbit"
+			onSubmit={handleSubmit}
 			className="flex flex-col gap-5 md:w-6/12 mx-auto text-center"
 		>
 			<h2 className="mb-10 text-2xl  md:text-4xl font-semibold">
@@ -240,19 +238,35 @@ const Form = ({
 					/>
 				</div>
 			</div>
-			<div>
-				<div data-netlify-recaptcha="true"></div>
-			</div>
 			<div className="space-x-6">
-				<ButtonSubmit type="button">
-					<input
-						className="w-full bg-transparent cursor-pointer"
-						type="submit"
-						value="Send message"
-					/>
-				</ButtonSubmit>
+				<ButtonSubmit type="submit">Submit</ButtonSubmit>
 				<FunctionalButton fun={handleRefresh}>Refresh</FunctionalButton>
 			</div>
+		</form>
+	);
+};
+
+const NetlifyForm = () => {
+	return (
+		<form
+			name="contact"
+			method="POST"
+			data-netlify="true"
+			onSubmit="submit"
+		>
+			<p>
+				<label>
+					Name <input type="text" name="name" />
+				</label>
+			</p>
+			<p>
+				<label>
+					Email <input type="email" name="email" />
+				</label>
+			</p>
+			<p>
+				<button type="submit">Send</button>
+			</p>
 		</form>
 	);
 };
