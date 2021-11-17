@@ -239,8 +239,12 @@ const Form = ({
 				</div>
 			</div>
 			<div className="space-x-6">
-				<ButtonSubmit type="submit" value="submit">
-					Submit
+				<ButtonSubmit type="button">
+					<input
+						className="w-full bg-transparent cursor-pointer"
+						type="submit"
+						value="Send message"
+					/>
 				</ButtonSubmit>
 				<FunctionalButton fun={handleRefresh}>Refresh</FunctionalButton>
 			</div>
