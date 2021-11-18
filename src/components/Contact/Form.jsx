@@ -13,52 +13,51 @@ function Form({ comments, setComments }) {
 	const [valid, setValid] = useState(true);
 	const [sent, setSent] = useState(false);
 
-	// const validateName = (name) => {
-	// 	const re = /^[^0-9()]+$/;
-	// 	return re.test(String(name).toLowerCase());
-	// };
+	const validateName = (name) => {
+		const re = /^[^0-9()]+$/;
+		return re.test(String(name).toLowerCase());
+	};
 
-	// const validateEmail = (email) => {
-	// 	const re =
-	// 		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	// 	return re.test(String(email).toLowerCase());
-	// };
+	const validateEmail = (email) => {
+		const re =
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(email).toLowerCase());
+	};
 
-	// const createID = () => {
-	// 	return new Date().getTime().toString().slice(-6);
-	// };
+	const createID = () => {
+		return new Date().getTime().toString().slice(-6);
+	};
 
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	if (
-	// 		nameContainer.current.value &&
-	// 		emailContainer.current.value &&
-	// 		messageContainer.current.value &&
-	// 		checkboxContainer.current.checked
-	// 	) {
-	// 		if (!validateEmail(emailContainer.current.value)) {
-	// 			setValid(false);
-	// 			emailContainer.current.value = "";
-	// 			return;
-	// 		}
+	const handleSubmit = () => {
+		if (
+			nameContainer.current.value &&
+			emailContainer.current.value &&
+			messageContainer.current.value &&
+			checkboxContainer.current.checked
+		) {
+			if (!validateEmail(emailContainer.current.value)) {
+				setValid(false);
+				emailContainer.current.value = "";
+				return;
+			}
 
-	// 		if (!validateName(nameContainer.current.value)) {
-	// 			setValid(false);
-	// 			nameContainer.current.value = "";
-	// 			return;
-	// 		}
-	// 		const newData = {
-	// 			id: createID(),
-	// 			name: nameContainer.current.value,
-	// 			email: emailContainer.current.value,
-	// 			message: messageContainer.current.value,
-	// 			date: new Date().toDateString(),
-	// 		};
+			if (!validateName(nameContainer.current.value)) {
+				setValid(false);
+				nameContainer.current.value = "";
+				return;
+			}
+			const newData = {
+				id: createID(),
+				name: nameContainer.current.value,
+				email: emailContainer.current.value,
+				message: messageContainer.current.value,
+				date: new Date().toDateString(),
+			};
 
-	// 		setComments([...comments, newData]);
-	// 		setSent(true);
-	// 	}
-	// };
+			setComments([...comments, newData]);
+			setSent(true);
+		}
+	};
 
 	const handleRefresh = () => {
 		nameContainer.current.value = "";
@@ -92,7 +91,7 @@ function Form({ comments, setComments }) {
 		<form
 			name="contact"
 			method="post"
-			// onSubmit={handleSubmit}
+			onSubmit={handleSubmit}
 			className="flex flex-col gap-5 md:w-6/12 mx-auto text-center"
 		>
 			<h2 className="mb-10 text-2xl  md:text-4xl font-semibold">
