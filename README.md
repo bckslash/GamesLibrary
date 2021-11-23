@@ -3,8 +3,8 @@
   <a href="https://github.com/Robert Smrek/AWT - Games Library">
     <img src="images/logo.svg" alt="Logo" width="80" height="80">
   </a>
-
   <h3 align="center">Games Library</h3>
+  <br/>
 </p>
 
 ![Downloads](https://img.shields.io/github/downloads/bckslash/GamesLibrary/total) ![Contributors](https://img.shields.io/github/contributors/bckslash/GamesLibrary?color=dark-green) ![Issues](https://img.shields.io/github/issues/bckslash/GamesLibrary) ![License](https://img.shields.io/apm/l/vim-mode?color=asd&label=license&logo=green&logoColor=MIT)
@@ -26,16 +26,13 @@
 
 This project is for my school assigment to build full website on any theme.
 
-Project is still work in progress
-
 ## Built With
 
-Whole app is build with React and Tailwind css with custom API.
+Whole app is build with React, Tailwind CSS and powered by [RAWG](https://rawg.io/apidocs) API.
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
@@ -58,7 +55,7 @@ git clone git@github.com:bckslash/GamesLibrary.git
 3. Install NPM packages
 
 ```sh
-npm i
+npm install
 ```
 
 4. Run the app in the development mode.
