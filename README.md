@@ -25,14 +25,11 @@
 ![Screen Shot](images/screen.png)
 
 This project is for my school assigment to build full website on any theme.
+[LIVE PREVIEW](https://awt-project.robertsmrek.com)
 
 ## Built With
 
 Whole app is build with React, Tailwind CSS and powered by [RAWG](https://rawg.io/apidocs) API.
-
-## Live preview
-
-[WEBSITE](https://awt-project.robertsmrek.com)
 
 ## Getting Started
 
