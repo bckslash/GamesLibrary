@@ -30,6 +30,10 @@ This project is for my school assigment to build full website on any theme.
 
 Whole app is build with React, Tailwind CSS and powered by [RAWG](https://rawg.io/apidocs) API.
 
+## Live preview
+
+[WEBSITE](https://awt-project.robertsmrek.com)
+
 ## Getting Started
 
 To get a local copy up and running follow these steps.
