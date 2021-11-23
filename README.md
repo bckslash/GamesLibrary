@@ -12,6 +12,7 @@
 ## Table Of Contents
 
 -   [About the Project](#about-the-project)
+-   [Live preview](#live-review)
 -   [Built With](#built-with)
 -   [Getting Started](#getting-started)
     -   [Prerequisites](#prerequisites)
