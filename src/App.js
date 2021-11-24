@@ -9,6 +9,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import Loading from "./components/Loading";
 import { useGlobalContext } from "./context";
 
@@ -16,7 +19,13 @@ function App() {
 	const { loading } = useGlobalContext();
 
 	if (loading) {
-		return <Loading />;
+		return (
+			<Router>
+				<Navbar />
+				<Loading />
+				<Footer />
+			</Router>
+		);
 	}
 
 	return (

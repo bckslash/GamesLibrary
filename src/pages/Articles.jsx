@@ -26,9 +26,9 @@ function Articles() {
 			<main className="min-h-screen flex flex-col justify-between">
 				<Navbar />
 				<section className="page flex-1">
-					<div className="text-text 2xl:px-80 space-y-10">
-						<h1 className="text-center text-3xl font-semibold ">
-							Articles Page
+					<div className="text-text 2xl:px-96 space-y-10">
+						<h1 className="text-center text-4xl font-semibold ">
+							Articles
 						</h1>
 						<ArticlesComponent />
 					</div>
@@ -79,28 +79,30 @@ const ArticlesComponent = () => {
 						return (
 							<div
 								key={item.id}
-								className="bg-dark px-6 py-4 shadow-md rounded-md space-y-3"
+								className="bg-dark p-6 shadow-md rounded-md space-y-5"
 							>
-								<div className="flex justify-between border-b border-gray-400 pb-3 text-text font-light">
-									<h3 className="capitalize">
+								<div className="flex justify-between flex-wrap gap-1 border-b border-gray-400 pb-3 text-text font-light">
+									<h3 className="capitalize flex-1">
 										{item.author}
 									</h3>
 									<h3>{item.dateCreated}</h3>
 								</div>
-								<h1 className="capitalize">{item.title}</h1>
-								{item.imageLink && (
-									<img
-										className="rounded w-1/2 shadow"
-										src={item.imageLink}
-										alt={item.title}
-									/>
-								)}
+								<div className="space-y-3">
+									<h1 className="capitalize">{item.title}</h1>
+									{item.imageLink && (
+										<img
+											className="rounded w-1/2 shadow"
+											src={item.imageLink}
+											alt={item.title}
+										/>
+									)}
+								</div>
 								{item.tags.length > 0 && <Tags {...{ item }} />}
 							</div>
 						);
 					})}
 			</article>
-			<div className="text-base md:text-xl 2xl:text-2xl text-center mt-20 space-x-5 flex justify-center items-center text-light">
+			<div className="text-base md:text-xl 2xl:text-2xl text-center mt-20 space-x-5 flex justify-center items-center text-text">
 				<FunctionalButton fun={handlePrev}>
 					<IoMdArrowDropleft />
 				</FunctionalButton>
@@ -115,9 +117,9 @@ const ArticlesComponent = () => {
 
 const Tags = ({ item }) => {
 	return (
-		<div className="text-text">
+		<>
 			{item.tags && (
-				<>
+				<div className="text-text border-t border-gray-400 pt-3">
 					<h1 className="font-medium">Tags:</h1>
 					{item.tags.map((tag, index) => {
 						return (
@@ -126,9 +128,9 @@ const Tags = ({ item }) => {
 							</div>
 						);
 					})}
-				</>
+				</div>
 			)}
-		</div>
+		</>
 	);
 };
 
