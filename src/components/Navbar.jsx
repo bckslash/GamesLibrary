@@ -77,6 +77,14 @@ const NavbarLinks = ({ hamburgerMenu }) => {
 			<li>
 				<Link
 					className="hover:text-gray-500 transition-colors duration-200 hover:animate-pulse"
+					to="/articles"
+				>
+					ARTICLES
+				</Link>
+			</li>
+			<li>
+				<Link
+					className="hover:text-gray-500 transition-colors duration-200 hover:animate-pulse"
 					to="/about"
 				>
 					ABOUT

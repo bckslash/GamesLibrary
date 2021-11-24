@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Games from "./pages/Games";
+import Articles from "./pages/Articles";
 import SingleGame from "./pages/SingleGame";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -29,6 +30,9 @@ function App() {
 				</Route>
 				<Route path="/game/:id">
 					<SingleGame />
+				</Route>
+				<Route path="/articles">
+					<Articles />
 				</Route>
 				<Route path="/about">
 					<About />
