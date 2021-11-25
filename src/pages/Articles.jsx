@@ -44,31 +44,42 @@ const ArticlesComponent = () => {
 
 	const [page, setPage] = useState(0);
 	const [articlesData, setArticlesData] = useState([]);
+	const [metaData, setMetaData] = useState([]);
+
+	const [maxArticles, setMaxArticles] = useState(20);
 
 	const { data, loading } = useFetchKeyless(
-		`${url}?offset=${page}&max=${20}`
+		`${url}?offset=${page}&max=${maxArticles}`
 	);
 	const { articles } = data;
+	const { meta } = data;
+
+	const lastSite = Math.ceil(metaData.totalCount / metaData.max);
 
 	const handlePrev = () => {
 		if (page <= 0) {
 			return;
 		}
-		setPage(page - 1);
+		setPage(page - 20);
 	};
 
 	const handleNext = () => {
-		if (page >= 1452) {
+		if (page >= lastSite) {
 			return;
 		}
-		setPage(page + 1);
+		setPage(page + 20);
 	};
 
 	useEffect(() => {
 		if (!loading) {
 			setArticlesData(articles);
+			setMetaData(meta);
 		}
-	}, [data, loading, articles]);
+		if (page >= lastSite) {
+			setMaxArticles(10);
+		}
+		setMaxArticles(20);
+	}, [data, loading, articles, metaData, maxArticles, lastSite, meta, page]);
 
 	if (loading) {
 		return <Loading />;
@@ -109,7 +120,9 @@ const ArticlesComponent = () => {
 							</div>
 						);
 					})}
-				<PageButtons {...{ page, setPage, handlePrev, handleNext }} />
+				<PageButtons
+					{...{ page, setPage, handlePrev, handleNext, lastSite }}
+				/>
 			</article>
 		</section>
 	);
@@ -134,7 +147,7 @@ const Tags = ({ item }) => {
 	);
 };
 
-const PageButtons = ({ page, setPage, handlePrev, handleNext }) => {
+const PageButtons = ({ page, setPage, handlePrev, handleNext, lastSite }) => {
 	return (
 		<div className="text-base md:text-xl 2xl:text-2xl text-center mt-20 space-x-5 flex justify-center items-center text-text">
 			{page !== 0 && (
@@ -152,31 +165,30 @@ const PageButtons = ({ page, setPage, handlePrev, handleNext }) => {
 
 				<h1 className="text-xl">Page {page}</h1>
 
-				{page + 1 !== page && page !== 1453 && (
+				{page + 1 !== page && page !== lastSite && (
 					<FunctionalButton fun={() => setPage(page + 1)}>
 						{page + 1}
 					</FunctionalButton>
 				)}
 
-				{page + 2 !== page && page !== 1453 && (
+				{page + 2 !== page && page !== lastSite && (
 					<FunctionalButton fun={() => setPage(page + 2)}>
 						{page + 2}
 					</FunctionalButton>
 				)}
 
-				{page + page !== page && page !== 1453 && (
+				{page + page !== page && page !== lastSite && (
 					<FunctionalButton fun={() => setPage(page + page)}>
 						{page + page}
 					</FunctionalButton>
 				)}
-
-				{page + page !== page && page !== 1453 && (
-					<FunctionalButton fun={() => setPage(1453)}>
-						1453
+				{page + page !== page && page !== lastSite && (
+					<FunctionalButton fun={() => setPage(lastSite)}>
+						{lastSite}
 					</FunctionalButton>
 				)}
 			</div>
-			{page !== 1453 && (
+			{page !== lastSite && (
 				<FunctionalButton fun={handleNext}>
 					<IoMdArrowDropright />
 				</FunctionalButton>
