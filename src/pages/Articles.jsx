@@ -46,7 +46,7 @@ const ArticlesComponent = () => {
 	const [articlesData, setArticlesData] = useState([]);
 
 	const { data, loading } = useFetchKeyless(
-		`${url}?offset=${page}&max=${10}`
+		`${url}?offset=${page}&max=${20}`
 	);
 	const { articles } = data;
 
@@ -58,6 +58,9 @@ const ArticlesComponent = () => {
 	};
 
 	const handleNext = () => {
+		if (page >= 1452) {
+			return;
+		}
 		setPage(page + 1);
 	};
 
@@ -88,7 +91,12 @@ const ArticlesComponent = () => {
 									<h3>{item.dateCreated}</h3>
 								</div>
 								<div className="space-y-3">
-									<h1 className="capitalize">{item.title}</h1>
+									<h1 className="capitalize font-light">
+										<div className="font-medium">
+											Message:
+										</div>
+										{item.title}
+									</h1>
 									{item.imageLink && (
 										<img
 											className="rounded w-1/2 shadow"
@@ -101,16 +109,8 @@ const ArticlesComponent = () => {
 							</div>
 						);
 					})}
+				<PageButtons {...{ page, setPage, handlePrev, handleNext }} />
 			</article>
-			<div className="text-base md:text-xl 2xl:text-2xl text-center mt-20 space-x-5 flex justify-center items-center text-text">
-				<FunctionalButton fun={handlePrev}>
-					<IoMdArrowDropleft />
-				</FunctionalButton>
-				<h1>Page {page + 1}</h1>
-				<FunctionalButton fun={handleNext}>
-					<IoMdArrowDropright />
-				</FunctionalButton>
-			</div>
 		</section>
 	);
 };
@@ -131,6 +131,57 @@ const Tags = ({ item }) => {
 				</div>
 			)}
 		</>
+	);
+};
+
+const PageButtons = ({ page, setPage, handlePrev, handleNext }) => {
+	return (
+		<div className="text-base md:text-xl 2xl:text-2xl text-center mt-20 space-x-5 flex justify-center items-center text-text">
+			{page !== 0 && (
+				<FunctionalButton fun={handlePrev}>
+					<IoMdArrowDropleft />
+				</FunctionalButton>
+			)}
+			<h1 className="text-xl sm:hidden">Page {page}</h1>
+			<div className="hidden sm:flex items-center text-base gap-3">
+				{page !== 0 && (
+					<FunctionalButton fun={() => setPage(0)}>
+						0
+					</FunctionalButton>
+				)}
+
+				<h1 className="text-xl">Page {page}</h1>
+
+				{page + 1 !== page && page !== 1453 && (
+					<FunctionalButton fun={() => setPage(page + 1)}>
+						{page + 1}
+					</FunctionalButton>
+				)}
+
+				{page + 2 !== page && page !== 1453 && (
+					<FunctionalButton fun={() => setPage(page + 2)}>
+						{page + 2}
+					</FunctionalButton>
+				)}
+
+				{page + page !== page && page !== 1453 && (
+					<FunctionalButton fun={() => setPage(page + page)}>
+						{page + page}
+					</FunctionalButton>
+				)}
+
+				{page + page !== page && page !== 1453 && (
+					<FunctionalButton fun={() => setPage(1453)}>
+						1453
+					</FunctionalButton>
+				)}
+			</div>
+			{page !== 1453 && (
+				<FunctionalButton fun={handleNext}>
+					<IoMdArrowDropright />
+				</FunctionalButton>
+			)}
+		</div>
 	);
 };
 
