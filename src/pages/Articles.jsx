@@ -51,8 +51,7 @@ const ArticlesComponent = () => {
 	const { data, loading } = useFetchKeyless(
 		`${url}?offset=${page}&max=${maxArticles}`
 	);
-	const { articles } = data;
-	const { meta } = data;
+	const { articles, meta } = data;
 
 	const lastSite = Math.ceil(metaData.totalCount / metaData.max);
 
