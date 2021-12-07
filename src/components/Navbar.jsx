@@ -73,7 +73,7 @@ function Navbar() {
 						<Link to="/profile">
 							<div className="w-12 cursor-pointer">
 								<img
-									className="rounded"
+									className="rounded-full"
 									src={user.picture}
 									alt={user.name}
 								/>
