@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { BiGame } from "react-icons/bi";
+import { useAuth0 } from "@auth0/auth0-react";
 
+import { Link } from "react-router-dom";
+
+import { BiGame } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 function Navbar() {
 	const [hamburgerMenu, setHamburgerMenu] = useState(false);
+	const { loginWithRedirect, logout, user, isLoading } = useAuth0();
 
 	useEffect(() => {
 		window.addEventListener("resize", () => {
@@ -45,6 +48,39 @@ function Navbar() {
 					/>
 				</button>
 				{hamburgerMenu || <NavbarLinks {...{ hamburgerMenu }} />}
+
+				{/* auth0 buttons */}
+				<div className="flex justify-center items-center gap-5">
+					{!isLoading && !user && (
+						<button
+							className="bg-primary py-2 px-4 rounded shadow animation hover:animate-pulse hover:bg-secondary transition-all"
+							onClick={() => loginWithRedirect()}
+						>
+							Log In
+						</button>
+					)}
+
+					{!isLoading && user && (
+						<button
+							className="bg-primary py-2 px-4 rounded shadow animation hover:animate-pulse hover:bg-secondary transition-all"
+							onClick={() => logout()}
+						>
+							Log Out
+						</button>
+					)}
+
+					{user && !hamburgerMenu && (
+						<Link to="/profile">
+							<div className="w-12 cursor-pointer">
+								<img
+									className="rounded"
+									src={user.picture}
+									alt={user.name}
+								/>
+							</div>
+						</Link>
+					)}
+				</div>
 			</div>
 			{hamburgerMenu && <NavbarLinks {...{ hamburgerMenu }} />}
 		</nav>

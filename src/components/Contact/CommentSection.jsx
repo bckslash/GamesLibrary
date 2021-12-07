@@ -3,8 +3,6 @@ import React from "react";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
 function CommentSection({ comments, setComments }) {
-	console.log(comments);
-
 	if (comments.length === 0) {
 		return (
 			<article className="mt-20 space-y-10 text-white">

@@ -54,7 +54,8 @@ export const GameCard = ({ game }) => {
 				src={game.background_image}
 				alt={game.name}
 			/>
-			<section className="p-8 space-y-5 text-center">
+			<section className="p-5 space-y-5 text-center">
+				<Platforms {...{ game }} />
 				<Link to={`/game/${game.id}`}>
 					<h1 className="text-center text-2xl font-semibold capitalize hover:opacity-50 transition-opacity cursor-pointer">
 						{game.name}
@@ -74,7 +75,7 @@ const Table = ({ showMore, game }) => {
 				showMore && `hidden`
 			}`}
 		>
-			<tbody className="">
+			<tbody>
 				<tr className="border-b border-gray-500">
 					<th>RATING:</th>
 					<td className="capitalize">{game.rating}</td>
@@ -85,7 +86,7 @@ const Table = ({ showMore, game }) => {
 				</tr>
 				<tr className="border-b border-gray-500">
 					<th>GENRES</th>
-					<td className="capitalize flex space-x-2">
+					<td className="capitalize flex space-x-2 flex-wrap">
 						{game.genres.map((item) => {
 							return <h1 key={item.id}>{item.name}</h1>;
 						})}
@@ -93,6 +94,25 @@ const Table = ({ showMore, game }) => {
 				</tr>
 			</tbody>
 		</table>
+	);
+};
+
+const Platforms = ({ game }) => {
+	const { parent_platforms } = game;
+
+	return (
+		<div className="flex gap-2 mb-5 flex-wrap">
+			{parent_platforms.map((item) => {
+				return (
+					<span
+						key={item.platform.id}
+						className="bg-primary text-xs py-1 px-2 rounded"
+					>
+						{item.platform.name}
+					</span>
+				);
+			})}
+		</div>
 	);
 };
 

@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Games from "./pages/Games";
-import Articles from "./pages/Articles";
 import SingleGame from "./pages/SingleGame";
+import Articles from "./pages/Articles";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
+import Profile from "./pages/Profile";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -48,6 +49,9 @@ function App() {
 				</Route>
 				<Route path="/contact">
 					<Contact />
+				</Route>
+				<Route path="/profile">
+					<Profile />
 				</Route>
 				<Route path="*">
 					<ErrorPage />
