@@ -33,24 +33,38 @@ function Articles() {
 						<h1 className="text-center text-4xl font-semibold ">
 							Articles
 						</h1>
-						<div className="space-y-5">
-							<div className="text-right">
-								<select
-									id="articles"
-									className="bg-transparent border-gray-900 rounded"
-									onChange={(e) => setSelect(e.target.value)}
-								>
-									<option value="latest">Latest</option>
-									<option value="default">All</option>
-								</select>
-							</div>
+						<div className="space-y-10">
 							<AddComment />
+							<div className="space-y-5">
+								<div className="text-right">
+									<select
+										id="articles"
+										className="bg-transparent border-gray-900 rounded"
+										onChange={(e) =>
+											setSelect(e.target.value)
+										}
+									>
+										<option
+											value="latest"
+											className="bg-primary"
+										>
+											Latest
+										</option>
+										<option
+											value="default"
+											className="bg-primary"
+										>
+											All
+										</option>
+									</select>
+								</div>
+								{select === "latest" ? (
+									<Latest />
+								) : (
+									<ArticlesComponent />
+								)}
+							</div>
 						</div>
-						{select === "latest" ? (
-							<Latest />
-						) : (
-							<ArticlesComponent />
-						)}
 					</div>
 				</section>
 			</main>

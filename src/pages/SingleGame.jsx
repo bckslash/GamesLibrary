@@ -89,6 +89,7 @@ function SingleGame() {
 								{data.metacritic && <Metascore {...{ data }} />}
 								<Table {...{ data }} />
 								{data.tags && <Tags {...{ data }} />}
+								{data.platforms && <Platforms {...{ data }} />}
 								{data.genres && <Genres {...{ data }} />}
 							</div>
 						</div>
@@ -143,6 +144,26 @@ const Tags = ({ data }) => {
 							className="capitalize bg-dark py-1 px-2 rounded shadow flex-grow text-center text-text"
 						>
 							{tag.name}
+						</p>
+					);
+				})}
+			</div>
+		</>
+	);
+};
+
+const Platforms = ({ data }) => {
+	return (
+		<>
+			<h1 className="text-sm md:text-base font-medium">Platforms: </h1>
+			<div className="flex flex-wrap gap-2 overflow-hidden text-sm md:text-base">
+				{data.platforms.map((item) => {
+					return (
+						<p
+							key={item.platform.id}
+							className="capitalize bg-dark py-1 px-2 rounded shadow flex-grow text-center text-text"
+						>
+							{item.platform.name}
 						</p>
 					);
 				})}

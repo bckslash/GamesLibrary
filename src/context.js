@@ -6,6 +6,7 @@ function AppProvider({ children }) {
 	const [number, setNumber] = useState(0);
 	const [games, setGames] = useState([]);
 	const [game, setGame] = useState({});
+	const [search, setSearch] = useState("");
 
 	// eslint-disable-next-line
 	const [page, setPage] = useState(1);
@@ -18,7 +19,9 @@ function AppProvider({ children }) {
 	const fetchData = async () => {
 		setLoading(true);
 		try {
-			await fetch(`${url}key=${apiKey}&page=${page}`)
+			await fetch(
+				`${url}key=${apiKey}&page=${page}&ordering=${"-relevance"}&page_size=20&search=${search}`
+			)
 				.then((resp) => {
 					return resp.json();
 				})
@@ -37,7 +40,7 @@ function AppProvider({ children }) {
 	useEffect(() => {
 		fetchData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [url, page]);
+	}, [url, page, search]);
 
 	return (
 		<AppContext.Provider
@@ -50,6 +53,7 @@ function AppProvider({ children }) {
 				games,
 				page,
 				setPage,
+				setSearch,
 			}}
 		>
 			{children}
