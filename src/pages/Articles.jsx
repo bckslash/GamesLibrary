@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -150,7 +151,10 @@ const AddComment = () => {
 			.post(url, {
 				author: nameContainer.current.value,
 				title: bodyContainer.current.value,
-				tags: tagsContainer.current.value.split(" "),
+				tags:
+					tagsContainer.current.value.split(" ").length >= 2
+						? tagsContainer.current.value.split(" ")
+						: tagsContainer.current.value,
 				imageLink: imageContainer.current.value,
 			})
 			.then((res) => {
@@ -164,6 +168,13 @@ const AddComment = () => {
 	const handleClick = () => {
 		createPost();
 	};
+
+	const { user, isLoading } = useAuth0();
+	useEffect(() => {
+		if (user && !isLoading) {
+			nameContainer.current.value = user.name;
+		}
+	}, [user, isLoading]);
 
 	return (
 		<form className="flex flex-col gap-5 mx-auto text-center">

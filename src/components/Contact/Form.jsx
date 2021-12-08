@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import ButtonSubmit from "../Button";
 import { FunctionalButton } from "../Button";
@@ -86,6 +87,14 @@ function Form({ comments, setComments }) {
 	useEffect(() => {
 		nameContainer.current.focus();
 	}, []);
+
+	const { user, isLoading } = useAuth0();
+	useEffect(() => {
+		if (user && !isLoading) {
+			nameContainer.current.value = user.name;
+			emailContainer.current.value = user.email;
+		}
+	}, [user, isLoading]);
 
 	return (
 		<form

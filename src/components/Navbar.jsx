@@ -53,7 +53,7 @@ function Navbar() {
 				<div className="flex justify-center items-center gap-5">
 					{!isLoading && !user && (
 						<button
-							className="bg-primary py-2 px-4 rounded shadow animation hover:animate-pulse hover:bg-secondary transition-all"
+							className="bg-primary text-light py-2 px-4 rounded shadow animation hover:animate-pulse hover:bg-secondary transition-all"
 							onClick={() => loginWithRedirect()}
 						>
 							Log In
@@ -62,7 +62,7 @@ function Navbar() {
 
 					{!isLoading && user && (
 						<button
-							className="bg-primary py-2 px-4 rounded shadow animation hover:animate-pulse hover:bg-secondary transition-all"
+							className="bg-primary text-light py-2 px-4 rounded shadow animation hover:animate-pulse hover:bg-secondary transition-all"
 							onClick={() => logout()}
 						>
 							Log Out

@@ -43,7 +43,7 @@ function Profile() {
 					<div className="text-text 2xl:px-40 space-y-10">
 						<div className="flex gap-5 md:gap-10 justify-start items-center flex-wrap">
 							<img
-								className="rounded-full"
+								className="rounded-full w-20 sm:w-28 md:w-32"
 								src={user.picture}
 								alt={user.name}
 							/>

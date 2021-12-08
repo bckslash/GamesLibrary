@@ -20,7 +20,7 @@ function AppProvider({ children }) {
 		setLoading(true);
 		try {
 			await fetch(
-				`${url}key=${apiKey}&page=${page}&ordering=${"-relevance"}&page_size=20&search=${search}`
+				`${url}key=${apiKey}&page=${page}&ordering=${"-relevance"}&page_size=30&search=${search}`
 			)
 				.then((resp) => {
 					return resp.json();

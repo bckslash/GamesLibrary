@@ -25,6 +25,12 @@ module.exports = {
 			brightness: ["hover", "focus"],
 			animation: ["hover", "focus"],
 		},
+		extend: {
+			display: ["hover", "focus"],
+		},
+	},
+	corePlugins: {
+		display: true,
 	},
 	plugins: [
 		require("@tailwindcss/typography"),

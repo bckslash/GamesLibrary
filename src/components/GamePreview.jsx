@@ -48,9 +48,9 @@ export const GameCard = ({ game }) => {
 	const [showMore, setShowMore] = useState(true);
 
 	return (
-		<section className="bg-dark flex-1 text-text rounded shadow-xl hover:filter saturate-0 brightness-75 transform hover:scale-105 z-10 transition-transform">
+		<section className="bg-dark flex-1 text-text rounded shadow-sm hover:shadow-2xl transition-shadow hover:filter z-10">
 			<img
-				className="rounded-t w-full"
+				className="rounded-t w-full h-2/4"
 				src={game.background_image}
 				alt={game.name}
 			/>
@@ -144,7 +144,7 @@ const ToggleButton = ({ showMore, setShowMore }) => {
 			onClick={() => {
 				setShowMore(!showMore);
 			}}
-			className="bg-primary mx-auto px-3 py-1 rounded shadow-xl text-white hover:opacity-80 transition-opacity duration-200"
+			className="bg-primary mx-auto px-3 py-1 rounded shadow-xl text-light hover:opacity-80 transition-opacity duration-200"
 		>
 			{showMore ? "Read More" : "Show less"}
 		</button>

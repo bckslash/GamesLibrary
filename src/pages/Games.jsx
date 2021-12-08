@@ -44,10 +44,10 @@ function Games() {
 		<>
 			<main className="min-h-screen flex flex-col justify-between">
 				<Navbar />
-				<section className="page flex-1 text-center space-y-20">
-					<form className="flex justify-center gap-5 flex-col sm:flex-row">
+				<section className="page flex-1 text-center space-y-10">
+					<form className="flex justify-center xl:justify-end gap-5 flex-col sm:flex-row">
 						<input
-							className="bg-transparent border-gray-900 rounded sm:w-2/4 text-xl px-4 py-2 text-light"
+							className="bg-transparent border-light rounded sm:w-2/5 text-xl px-4 py-2 text-light"
 							type="text"
 							id="search"
 							name="search"
@@ -59,11 +59,30 @@ function Games() {
 							Search
 						</FunctionalButton>
 					</form>
-					<div className="grid gap-5 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 items-start">
-						{games.map((game) => {
-							return <GameCard key={game.id} game={game} />;
-						})}
+
+					<div className="grid gap-5 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-start">
+						<div className="flex flex-col gap-5">
+							{games.slice(0, 5).map((game) => {
+								return <GameCard key={game.id} game={game} />;
+							})}
+						</div>
+						<div className="flex flex-col gap-5">
+							{games.slice(5, 10).map((game) => {
+								return <GameCard key={game.id} game={game} />;
+							})}
+						</div>
+						<div className="flex flex-col gap-5">
+							{games.slice(10, 15).map((game) => {
+								return <GameCard key={game.id} game={game} />;
+							})}
+						</div>
+						<div className="flex flex-col gap-5">
+							{games.slice(15, 20).map((game) => {
+								return <GameCard key={game.id} game={game} />;
+							})}
+						</div>
 					</div>
+
 					<div className="text-base md:text-xl 2xl:text-2xl text-center mt-20 space-x-5 flex justify-center items-center text-light">
 						<FunctionalButton fun={handlePrev}>
 							<IoMdArrowDropleft />
