@@ -6,6 +6,8 @@ import { IoMdArrowDropright } from "react-icons/io";
 
 import { useGlobalContext } from "../context";
 
+import formatDate from "../utils/formatDate";
+
 function GamePreview() {
 	const { number, setNumber, game, setGame, games } = useGlobalContext();
 
@@ -48,14 +50,14 @@ export const GameCard = ({ game }) => {
 	const [showMore, setShowMore] = useState(true);
 
 	return (
-		<section className="bg-dark flex-1 text-text rounded shadow-sm hover:shadow-2xl transition-shadow hover:filter z-10">
+		<section className="bg-dark flex-1 text-text rounded-xl shadow-sm hover:shadow-2xl transition-shadow hover:filter z-10">
 			<img
-				className="rounded-t w-full h-2/4"
+				className="rounded-t-xl w-full h-2/4"
 				src={game.background_image}
 				alt={game.name}
 			/>
 			<section className="p-5 space-y-5 text-center">
-				<Platforms {...{ game }} />
+				{game.parent_platforms && <Platforms {...{ game }} />}
 				<Link to={`/game/${game.id}`}>
 					<h1 className="text-center text-2xl font-semibold capitalize hover:opacity-50 transition-opacity cursor-pointer">
 						{game.name}
@@ -75,18 +77,22 @@ const Table = ({ showMore, game }) => {
 				showMore && `hidden`
 			}`}
 		>
-			<tbody>
-				<tr className="border-b border-gray-500">
+			<tbody className="w-full">
+				<tr className="border-b border-gray-600">
 					<th>RATING:</th>
-					<td className="capitalize">{game.rating}</td>
+					<td className="capitalize text-right py-2">
+						{game.rating}
+					</td>
 				</tr>
-				<tr className="border-b border-gray-500">
+				<tr className="border-b border-gray-600 ">
 					<th>RELEASE DATE:</th>
-					<td className="capitalize">{game.released}</td>
+					<td className="capitalize text-right py-2">
+						{formatDate(game.released)}
+					</td>
 				</tr>
-				<tr className="border-b border-gray-500">
+				<tr className="border-b border-gray-600 ">
 					<th>GENRES</th>
-					<td className="capitalize flex space-x-2 flex-wrap">
+					<td className="capitalize text-right py-2">
 						{game.genres.map((item) => {
 							return <h1 key={item.id}>{item.name}</h1>;
 						})}

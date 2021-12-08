@@ -7,6 +7,7 @@ function AppProvider({ children }) {
 	const [games, setGames] = useState([]);
 	const [game, setGame] = useState({});
 	const [search, setSearch] = useState("");
+	const [count, setCount] = useState("");
 
 	// eslint-disable-next-line
 	const [page, setPage] = useState(1);
@@ -27,6 +28,7 @@ function AppProvider({ children }) {
 				})
 				.then((data) => {
 					const { results } = data;
+					setCount(data.count);
 					setGames(results);
 					setGame(results[number]);
 					setLoading(false);
@@ -54,6 +56,7 @@ function AppProvider({ children }) {
 				page,
 				setPage,
 				setSearch,
+				count,
 			}}
 		>
 			{children}

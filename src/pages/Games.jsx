@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
+import { AiOutlineSearch } from "react-icons/ai";
 
 import { FunctionalButton } from "../components/Button";
 
@@ -15,7 +16,7 @@ import { useGlobalContext } from "../context";
 function Games() {
 	document.title = "Game Library | Games";
 
-	const { games, page, setPage, setSearch } = useGlobalContext();
+	const { games, page, setPage, setSearch, count } = useGlobalContext();
 	const searchContainer = useRef(null);
 
 	React.useEffect(() => {
@@ -40,24 +41,33 @@ function Games() {
 		setPage(1);
 	};
 
+	function separator(numb) {
+		var str = numb.toString().split(".");
+		str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return str.join(".");
+	}
+
 	return (
 		<>
 			<main className="min-h-screen flex flex-col justify-between">
 				<Navbar />
-				<section className="page flex-1 text-center space-y-10">
-					<form className="flex justify-center xl:justify-end gap-5 flex-col sm:flex-row">
+				<section className="page flex-1 text-center space-y-20">
+					<form
+						onSubmit={handleSearch}
+						className="border-2 border-dark text-text bg-secondary hover:bg-light hover:text-dark transition-all duration-300 text-2xl flex items-center px-4 py-1 rounded-full"
+					>
+						<AiOutlineSearch />
 						<input
-							className="bg-transparent border-light rounded sm:w-2/5 text-xl px-4 py-2 text-light"
+							className="bg-transparent border-0 w-full focus:ring-0 text-xl"
 							type="text"
 							id="search"
 							name="search"
-							placeholder="SEARCH GAME"
+							placeholder={`Search ${separator(count)} games`}
 							ref={searchContainer}
-							required
 						/>
-						<FunctionalButton fun={handleSearch}>
-							Search
-						</FunctionalButton>
+						<span className="text-sm border border-primary px-2 py-1 rounded">
+							Enter
+						</span>
 					</form>
 
 					<div className="grid gap-5 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-start">

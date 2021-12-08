@@ -7,6 +7,8 @@ import Loading from "../components/Loading";
 
 import { useFetch } from "../hooks/useFetch";
 
+import formatDate from "../utils/formatDate";
+
 function SingleGame() {
 	const { id } = useParams();
 	const url = `https://api.rawg.io/api/games/${id}?`;
@@ -211,29 +213,10 @@ const Table = ({ data }) => {
 	return (
 		<table className="text-justify w-full text-sm md:text-base">
 			<tbody>
-				{/* <tr>
-											<th>RECENT REVIEWS:</th>
-											<td className="capitalize text-gray-400">
-												{game.reviews.recent}
-											</td>
-										</tr>
-										<tr>
-											<th>ALL REVIEWS:</th>
-											<td className="capitalize text-gray-400">
-												{game.reviews.all}
-											</td>
-										</tr>
-										
-										<tr>
-										<th>PUBLISHER:</th>
-										<td className="capitalize text-gray-400">
-										{game.creators.publisher}
-										</td>
-									</tr> */}
 				<tr className="border-b border-gray-500">
 					<th>Release date:</th>
 					<td className="capitalize text-gray-400">
-						{data.released}
+						{formatDate(data.released)}
 					</td>
 				</tr>
 				<tr className="border-b border-gray-500">
