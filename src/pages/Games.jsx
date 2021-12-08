@@ -64,6 +64,7 @@ function Games() {
 							name="search"
 							placeholder={`Search ${separator(count)} games`}
 							ref={searchContainer}
+							autoComplete="off"
 						/>
 						<span className="text-sm border border-primary px-2 py-1 rounded">
 							Enter
