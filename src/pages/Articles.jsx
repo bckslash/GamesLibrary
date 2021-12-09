@@ -103,37 +103,7 @@ const Latest = () => {
 
 	return (
 		<section className="text-text space-y-5 space-y-10">
-			<article className="space-y-5">
-				{articles.map((item) => {
-					return (
-						<div
-							key={item.id}
-							className="bg-dark p-6 shadow-md rounded-md space-y-5"
-						>
-							<div className="flex justify-between flex-wrap gap-1 border-b border-gray-400 pb-3 text-text font-light">
-								<h3 className="capitalize flex-1">
-									{item.author}
-								</h3>
-								<h3>{item.dateCreated}</h3>
-							</div>
-							<div className="space-y-3">
-								<h1 className="capitalize font-light">
-									<div className="font-medium">Message:</div>
-									{item.title}
-								</h1>
-								{item.imageLink && (
-									<img
-										className="rounded w-1/2 shadow"
-										src={item.imageLink}
-										alt={item.title}
-									/>
-								)}
-							</div>
-							{item.tags.length > 0 && <Tags {...{ item }} />}
-						</div>
-					);
-				})}
-			</article>
+			<Comment {...{ articles }} />
 		</section>
 	);
 };
@@ -268,38 +238,7 @@ const ArticlesComponent = () => {
 	return (
 		<section className="text-text space-y-5 space-y-10">
 			<article className="space-y-5">
-				{loading ||
-					articles.map((item) => {
-						return (
-							<div
-								key={item.id}
-								className="bg-dark p-6 shadow-md rounded-md space-y-5"
-							>
-								<div className="flex justify-between flex-wrap gap-1 border-b border-gray-400 pb-3 text-text font-light">
-									<h3 className="capitalize flex-1">
-										{item.author}
-									</h3>
-									<h3>{item.dateCreated}</h3>
-								</div>
-								<div className="space-y-3">
-									<h1 className="capitalize font-light">
-										<div className="font-medium">
-											Message:
-										</div>
-										{item.title}
-									</h1>
-									{item.imageLink && (
-										<img
-											className="rounded w-1/2 shadow"
-											src={item.imageLink}
-											alt={item.title}
-										/>
-									)}
-								</div>
-								{item.tags.length > 0 && <Tags {...{ item }} />}
-							</div>
-						);
-					})}
+				<Comment {...{ articles }} />
 				<PageButtons
 					{...{
 						page,
@@ -312,6 +251,40 @@ const ArticlesComponent = () => {
 				/>
 			</article>
 		</section>
+	);
+};
+
+const Comment = ({ articles }) => {
+	return (
+		<article className="space-y-5">
+			{articles.map((item) => {
+				return (
+					<div
+						key={item.id}
+						className="bg-dark p-6 shadow-md rounded-md space-y-5"
+					>
+						<div className="flex justify-between flex-wrap gap-1 border-b border-gray-400 pb-3 text-text font-light">
+							<h3 className="capitalize flex-1">{item.author}</h3>
+							<h3>{new Date(item.dateCreated).toUTCString()}</h3>
+						</div>
+						<div className="space-y-3">
+							<h1 className="capitalize font-light">
+								<div className="font-medium">Message:</div>
+								{item.title}
+							</h1>
+							{item.imageLink && (
+								<img
+									className="rounded w-1/2 shadow"
+									src={item.imageLink}
+									alt={item.title}
+								/>
+							)}
+						</div>
+						{item.tags.length > 0 && <Tags {...{ item }} />}
+					</div>
+				);
+			})}
+		</article>
 	);
 };
 
